@@ -1,0 +1,38 @@
+syntax = "proto3";
+
+package com.smartagri.sensor;
+
+import "google/protobuf/timestamp.proto";
+
+service SensorService {
+  rpc AddSensor(SensorRequest) returns (SensorResponse);
+  rpc GetSensorData(SensorRequest) returns (SensorResponse);
+  rpc UpdateSensorData(SensorRequest) returns (SensorResponse);
+  rpc DeleteSensorData(SensorRequest) returns (SensorResponse);
+}
+
+message SensorRequest {
+  string id = 1;
+  string name = 2;
+  string type = 3;
+  string unit = 4;
+  string farm_id = 5;
+  string value = 6;
+  google.protobuf.Timestamp timestamp = 7;
+}
+
+message SensorResponse {
+  bool success = 1;
+  string message = 2;
+  repeated SensorData data = 3;
+}
+
+message SensorData {
+  string id = 1;
+  string name = 2;
+  string type = 3;
+  string unit = 4;
+  string farm_id = 5;
+  string value = 6;
+  google.protobuf.Timestamp timestamp = 7;
+}

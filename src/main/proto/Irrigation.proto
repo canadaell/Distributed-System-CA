@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+package com.smartagri.irrigation;
+
+import "google/protobuf/timestamp.proto";
+
+service IrrigationService {
+  rpc StartIrrigation(IrrigationRequest) returns (IrrigationResponse);
+  rpc StopIrrigation(IrrigationRequest) returns (IrrigationResponse);
+  rpc GetIrrigationStatus(IrrigationRequest) returns (IrrigationResponse);
+}
+
+message IrrigationRequest {
+  string farm_id = 1;
+  string zone_id = 2;
+  string duration = 3;
+  google.protobuf.Timestamp start_time = 4;
+}
+
+message IrrigationResponse {
+  bool success = 1;
+  string message = 2;
+  IrrigationStatus status = 3;
+}
+
+message IrrigationStatus {
+  string farm_id = 1;
+  string zone_id = 2;
+  bool is_irrigating = 3;
+  string start_time = 4;
+  string end_time = 5;
+}

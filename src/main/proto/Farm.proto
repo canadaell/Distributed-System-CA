@@ -1,0 +1,58 @@
+syntax = "proto3";
+
+package com.smartagri.farm;
+
+import "google/protobuf/timestamp.proto";
+
+service FarmService {
+  rpc AddFarm(FarmRequest) returns (FarmResponse);
+  rpc GetFarmDetails(FarmRequest) returns (FarmResponse);
+  rpc UpdateFarmDetails(FarmRequest) returns (FarmResponse);
+  rpc DeleteFarm(FarmRequest) returns (FarmResponse);
+}
+
+message FarmRequest {
+  string id = 1;
+  string name = 2;
+  string location = 3;
+  string owner_id = 4;
+  repeated Sensor sensors = 5;
+  repeated Crop crops = 6;
+  google.protobuf.Timestamp created_at = 7;
+  google.protobuf.Timestamp updated_at = 8;
+}
+
+message FarmResponse {
+  bool success = 1;
+  string message = 2;
+  Farm farm = 3;
+}
+
+message Farm {
+  string id = 1;
+  string name = 2;
+  string location = 3;
+  string owner_id = 4;
+  repeated Sensor sensors = 5;
+  repeated Crop crops = 6;
+  google.protobuf.Timestamp created_at = 7;
+  google.protobuf.Timestamp updated_at = 8;
+}
+
+message Sensor {
+  string id = 1;
+  string name = 2;
+  string type = 3;
+  string unit = 4;
+  string value = 5;
+  google.protobuf.Timestamp timestamp = 6;
+}
+
+message Crop {
+  string id = 1;
+  string name = 2;
+  string variety = 3;
+  string planting_date = 4;
+  string expected_harvest_date = 5;
+  string status = 6;
+}
