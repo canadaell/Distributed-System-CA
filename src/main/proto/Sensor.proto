@@ -2,13 +2,15 @@ syntax = "proto3";
 
 package com.smartagri.sensor;
 
+option java_multiple_files = true;
+option java_package = "grpc.SensorService";
+option java_outer_classname = "SensorProto";
+
 import "google/protobuf/timestamp.proto";
 
 service SensorService {
   rpc AddSensor(SensorRequest) returns (SensorResponse);
   rpc GetSensorData(SensorRequest) returns (SensorResponse);
-  rpc UpdateSensorData(SensorRequest) returns (SensorResponse);
-  rpc DeleteSensorData(SensorRequest) returns (SensorResponse);
 }
 
 message SensorRequest {
@@ -17,8 +19,6 @@ message SensorRequest {
   string type = 3;
   string unit = 4;
   string farm_id = 5;
-  string value = 6;
-  google.protobuf.Timestamp timestamp = 7;
 }
 
 message SensorResponse {
