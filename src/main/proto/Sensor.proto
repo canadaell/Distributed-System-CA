@@ -1,22 +1,19 @@
 syntax = "proto3";
 
-package com.smartagri.sensor;
+package SensorService;
 
 option java_multiple_files = true;
 option java_package = "grpc.SensorService";
 option java_outer_classname = "SensorProto";
 
-import "google/protobuf/timestamp.proto";
-
 service SensorService {
   rpc StreamSensorData(SensorRequest) returns (stream SensorResponse);
-  rpc getSensorData(SensorRequest) returns ( SensorResponse);
-
+  rpc AddSensor(AddSensorRequest) returns (AddSensorResponse);
 }
 
 message SensorRequest {
-  string farmid = 1;
-  string sensorid = 2;
+  int32 farmid = 1;
+  int32 sensorid = 2;
 }
 
 message SensorResponse {
@@ -26,4 +23,13 @@ message SensorResponse {
   double illumination = 4;
 }
 
+message AddSensorRequest {
+  int32 sensorid = 1;
+  string sensortype = 2;
+  string location = 3;
+}
 
+message AddSensorResponse {
+  bool success = 1;
+  string message = 2;
+}
