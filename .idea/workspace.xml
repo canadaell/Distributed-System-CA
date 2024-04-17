@@ -6,7 +6,46 @@
   <component name="ChangeListManager">
     <list default="true" id="5af600b7-a28b-4933-bfe4-6185cb56e5d7" name="更改" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/grpc/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/grpc/Server.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/grpc/FarmService/Farm.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/grpc/FarmService/FarmOrBuilder.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/grpc/FarmService/FarmProto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/grpc/FarmService/FarmRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/grpc/FarmService/FarmRequestOrBuilder.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/grpc/FarmService/FarmResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/grpc/FarmService/FarmResponseOrBuilder.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/grpc/FarmService/FarmServiceGrpc.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/grpc/FarmService/Service/FarmServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/grpc/IrrigationService/IrrigationProto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/grpc/IrrigationService/IrrigationRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/grpc/IrrigationService/IrrigationRequestOrBuilder.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/grpc/IrrigationService/IrrigationResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/grpc/IrrigationService/IrrigationResponseOrBuilder.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/grpc/IrrigationService/IrrigationServiceGrpc.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/grpc/IrrigationService/Service/IrrigationServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/grpc/SensorService/SensorData.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/grpc/SensorService/SensorDataOrBuilder.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/grpc/SensorService/SensorProto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/grpc/SensorService/SensorRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/grpc/SensorService/SensorRequestOrBuilder.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/grpc/SensorService/SensorResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/grpc/SensorService/SensorResponseOrBuilder.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/grpc/SensorService/SensorServiceGrpc.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/grpc/SensorService/Service/SensorServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/grpc/UserService/LoginRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/grpc/UserService/LoginRequestOrBuilder.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/grpc/UserService/LoginResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/grpc/UserService/LoginResponseOrBuilder.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/grpc/UserService/RegisterRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/grpc/UserService/RegisterRequestOrBuilder.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/grpc/UserService/RegisterResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/grpc/UserService/RegisterResponseOrBuilder.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/grpc/UserService/Service/UserServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/grpc/UserService/UserProto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/grpc/UserService/UserServiceGrpc.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/proto/Farm.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/proto/Sensor.proto" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/proto/Sensor.proto" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/proto/User.proto" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

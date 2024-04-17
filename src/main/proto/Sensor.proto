@@ -23,6 +23,7 @@ message SensorRequest {
 
 message SensorResponse {
   bool success = 1;
+
   string message = 2;
   repeated SensorData data = 3;
 }
