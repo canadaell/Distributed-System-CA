@@ -2,7 +2,7 @@ package grpc.IlluminateService;
 
 import io.grpc.stub.StreamObserver;
 
-public class IlluminationServiceImpl extends IlluminateServiceGrpc.IlluminateServiceImplBase {
+public class IlluminateServiceImpl extends IlluminateServiceGrpc.IlluminateServiceImplBase {
 
     @Override
     public StreamObserver<IlluminateRequest> illuminate(StreamObserver<IlluminateResponse> responseObserver) {

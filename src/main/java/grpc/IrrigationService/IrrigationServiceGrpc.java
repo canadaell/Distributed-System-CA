@@ -1,7 +1,5 @@
 package grpc.IrrigationService;
 
-import io.grpc.stub.StreamObserver;
-
 import static io.grpc.MethodDescriptor.generateFullMethodName;
 
 /**
@@ -113,8 +111,6 @@ public final class IrrigationServiceGrpc {
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return IrrigationServiceGrpc.bindService(this);
     }
-
-      public abstract void irrigation(StreamObserver<IrrigationRequest> requestObserver, StreamObserver<IrrigationResponse> responseObserver);
   }
 
   /**

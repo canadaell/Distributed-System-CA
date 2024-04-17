@@ -6,9 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="5af600b7-a28b-4933-bfe4-6185cb56e5d7" name="更改" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/proto/Illuminate.proto" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/proto/Illuminate.proto" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/proto/Irrigation.proto" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/proto/Irrigation.proto" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/proto/Sensor.proto" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/proto/Sensor.proto" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
