@@ -6,7 +6,7 @@ option java_multiple_files = true;
 option java_package = "grpc.IlluminateService";
 option java_outer_classname = "IlluminateProto";
 
-service IrrigationService {
+service IlluminateService {
   rpc StartIrrigation(stream IluminateRequest) returns (stream IlluminateResponse);
 
 }
