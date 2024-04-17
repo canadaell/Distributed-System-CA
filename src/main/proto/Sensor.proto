@@ -9,31 +9,21 @@ option java_outer_classname = "SensorProto";
 import "google/protobuf/timestamp.proto";
 
 service SensorService {
-  rpc AddSensor(SensorRequest) returns (SensorResponse);
-  rpc GetSensorData(SensorRequest) returns (SensorResponse);
+  rpc StreamSensorData(SensorRequest) returns (stream SensorResponse);
+  rpc getSensorData(SensorRequest) returns ( SensorResponse);
+
 }
 
 message SensorRequest {
-  string id = 1;
-  string name = 2;
-  string type = 3;
-  string unit = 4;
-  string farm_id = 5;
+  string farmid = 1;
+  string sensorid = 2;
 }
 
 message SensorResponse {
-  bool success = 1;
-
-  string message = 2;
-  repeated SensorData data = 3;
+  double tempreture = 1;
+  double humidity = 2;
+  string district = 3;
+  double illumination = 4;
 }
 
-message SensorData {
-  string id = 1;
-  string name = 2;
-  string type = 3;
-  string unit = 4;
-  string farm_id = 5;
-  string value = 6;
-  google.protobuf.Timestamp timestamp = 7;
-}
+

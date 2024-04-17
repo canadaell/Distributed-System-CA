@@ -1,25 +1,24 @@
 syntax = "proto3";
 
-package com.smartagri.irrigation;
-
-import "google/protobuf/timestamp.proto";
+package com.smartagri.Irrigation;
 
 option java_multiple_files = true;
 option java_package = "grpc.IrrigationService";
 option java_outer_classname = "IrrigationProto";
 
-service IrrigationService {
-  rpc StartIrrigation(IrrigationRequest) returns (IrrigationResponse);
-  rpc StopIrrigation(IrrigationRequest) returns (IrrigationResponse);
+
+
+service Enviroment{
+  rpc Irrigation(stream IrrigationRequest) returns (IrrigationResponse);
 }
 
-message IrrigationRequest {
-  string farm_id = 1;
-  string zone_id = 2;
-  string duration = 3;
+message IrrigationRequest{
+  string district = 1;
+  string farmid = 2;
 }
 
-message IrrigationResponse {
+message IrrigationResponse{
   bool success = 1;
-  string message = 2;
+  string volume = 2;
+  double humidity = 3;
 }
