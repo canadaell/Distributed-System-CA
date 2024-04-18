@@ -1,5 +1,12 @@
 package grpc.IrrigationService;
+
+import com.opencsv.CSVReader;
+import com.opencsv.exceptions.CsvException;
 import io.grpc.stub.StreamObserver;
+
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.List;
 
 public class IrrigationServiceImpl extends IrrigationServiceGrpc.IrrigationServiceImplBase {
 
@@ -15,22 +22,33 @@ public class IrrigationServiceImpl extends IrrigationServiceGrpc.IrrigationServi
         return new StreamObserver<IrrigationRequest>() {
             @Override
             public void onNext(IrrigationRequest irrigationRequest) {
-                System.out.println("Reveived irrigation request");
-                String message = "Farm ID: " + irrigationRequest.getFarmid() + ", District ID: " + irrigationRequest.getDistrictid();
-                int volume = processIrrigationRequest(irrigationRequest.getFarmid(), irrigationRequest.getDistrictid());
-                totalVolume += volume;
+                System.out.println("Received irrigation request");
 
-                // Send the processing result to the client
-                IrrigationResponse irrigationResponse = IrrigationResponse.newBuilder()
-                        .setSuccess(true)
-                        .setVolume(volume)
-                        .build();
-                responseObserver.onNext(irrigationResponse);
+                try (CSVReader reader = new CSVReader(new FileReader("../files/irrigation.csv"))) {
+                    List<String[]> records = reader.readAll();
+
+                    for (String[] record : records) {
+                        int farmId = Integer.parseInt(record[0]);
+                        int districtId = Integer.parseInt(record[1]);
+
+                        int volume = processIrrigationRequest(farmId, districtId);
+                        totalVolume += volume;
+
+                        // Send the processing result to the client
+                        IrrigationResponse irrigationResponse = IrrigationResponse.newBuilder()
+                                .setSuccess(true)
+                                .setVolume(volume)
+                                .build();
+                        responseObserver.onNext(irrigationResponse);
+                    }
+                } catch (IOException | CsvException e) {
+                    System.err.println("Error reading CSV file: " + e.getMessage());
+                }
             }
 
             @Override
             public void onError(Throwable throwable) {
-                System.err.println("Err in client information streaming: " + throwable.getMessage());
+                System.err.println("Error in client information streaming: " + throwable.getMessage());
             }
 
             @Override
