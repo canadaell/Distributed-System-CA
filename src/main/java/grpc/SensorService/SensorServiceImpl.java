@@ -1,29 +1,39 @@
 package grpc.SensorService;
 
 import io.grpc.stub.StreamObserver;
-import grpc.SensorService.AddSensorResponse;
+import org.apache.commons.csv.CSVFormat;
+import org.apache.commons.csv.CSVParser;
+import org.apache.commons.csv.CSVRecord;
 
-import java.util.concurrent.ThreadLocalRandom;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.Reader;
+import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 public class SensorServiceImpl extends SensorServiceGrpc.SensorServiceImplBase {
-    @Override
-    public void addSensor(AddSensorRequest request, StreamObserver<AddSensorResponse> responseObserver) {
-        int sensorId = request.getSensorid();
-        String sensorType = request.getSensortype();
-        String location = request.getLocation();
 
-        boolean success = true;
-        String message = "Sensor added successfully, " + "sensor ID " + request.getSensorid() + ", sensor type: " + request.getSensortype() + ", location: " + request.getLocation();
+    private static final List<SensorData> SENSOR_DATA = new CopyOnWriteArrayList<>();
 
-        AddSensorResponse response = AddSensorResponse.newBuilder()
-                .setSuccess(success)
-                .setMessage(message)
-                .build();
+    static {
+        try (Reader reader = new FileReader("../files/sensor.csv");
+             CSVParser csvParser = new CSVParser(reader, CSVFormat.DEFAULT)) {
 
-        responseObserver.onNext(response);
-        responseObserver.onCompleted();
+            for (CSVRecord csvRecord : csvParser) {
+                int farmId = Integer.parseInt(csvRecord.get("farm_id"));
+                int sensorId = Integer.parseInt(csvRecord.get("sensor_id"));
+                String district = csvRecord.get("district");
+                double temperature = Double.parseDouble(csvRecord.get("temperature"));
+                double illumination = Double.parseDouble(csvRecord.get("illumination"));
+                double humidity = Double.parseDouble(csvRecord.get("humidity"));
+
+                SENSOR_DATA.add(new SensorData(farmId, sensorId, district, temperature, humidity, illumination));
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
-
 
     @Override
     public void streamSensorData(SensorRequest request, StreamObserver<SensorResponse> responseObserver) {
@@ -33,20 +43,20 @@ public class SensorServiceImpl extends SensorServiceGrpc.SensorServiceImplBase {
         Runnable streamingTask = () -> {
             try {
                 while (!Thread.currentThread().isInterrupted()) {
+                    SensorData sensorData = getSensorData(farmId, sensorId);
 
-                    double temperature = ThreadLocalRandom.current().nextDouble(15.0, 35.0);
-                    double humidity = ThreadLocalRandom.current().nextDouble(40.0, 80.0);
-                    double illumination = ThreadLocalRandom.current().nextDouble(0.0, 1000.0);
+                    if (sensorData != null) {
+                        SensorResponse response = SensorResponse.newBuilder()
+                                .setTempreture(sensorData.getTemperature())
+                                .setHumidity(sensorData.getHumidity())
+                                .setDistrict(sensorData.getDistrict())
+                                .setIllumination(sensorData.getIllumination())
+                                .build();
 
-                    SensorResponse response = SensorResponse.newBuilder()
-                            .setTempreture(temperature)
-                            .setHumidity(humidity)
-                            .setDistrict("District " + farmId)
-                            .setIllumination(illumination)
-                            .build();
+                        responseObserver.onNext(response);
+                    }
 
-                    responseObserver.onNext(response);
-                    Thread.sleep(5000); // Stream every 5 seconds
+                    Thread.sleep(15000); // Stream every 5 seconds
                 }
             } catch (InterruptedException e) {
                 Thread.currentThread().interrupt();
@@ -58,6 +68,55 @@ public class SensorServiceImpl extends SensorServiceGrpc.SensorServiceImplBase {
         new Thread(streamingTask).start();
     }
 
+    private SensorData getSensorData(int farmId, int sensorId) {
+        for (SensorData data : SENSOR_DATA) {
+            if (data.getFarmId() == farmId && data.getSensorId() == sensorId) {
+                return data;
+            }
+        }
+
+        return null;
+    }
+
+    private static class SensorData {
+        private final int farmId;
+        private final int sensorId;
+        private final String district;
+        private final double temperature;
+        private final double humidity;
+        private final double illumination;
+
+        public SensorData(int farmId, int sensorId, String district, double temperature, double humidity, double illumination) {
+            this.farmId = farmId;
+            this.sensorId = sensorId;
+            this.district = district;
+            this.temperature = temperature;
+            this.humidity = humidity;
+            this.illumination = illumination;
+        }
+
+        public int getFarmId() {
+            return farmId;
+        }
+
+        public int getSensorId() {
+            return sensorId;
+        }
+
+        public String getDistrict() { // Add getter method for district field
+            return district;
+        }
+
+        public double getTemperature() {
+            return temperature;
+        }
+
+        public double getHumidity() {
+            return humidity;
+        }
+
+        public double getIllumination() {
+            return illumination;
+        }
+    }
 }
-
-
