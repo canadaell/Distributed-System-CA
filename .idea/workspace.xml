@@ -6,10 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="5af600b7-a28b-4933-bfe4-6185cb56e5d7" name="更改" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/files/sensor.csv" beforeDir="false" afterPath="$PROJECT_DIR$/files/sensor.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/grpc/IlluminateService/IlluminateServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/grpc/IlluminateService/IlluminateServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/grpc/IlluminationServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/grpc/IlluminateServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/grpc/IrrigationService/IrrigationServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/grpc/IrrigationService/IrrigationServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/grpc/IrrigationServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/grpc/IrrigationServer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
