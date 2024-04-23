@@ -7,6 +7,7 @@ import io.grpc.stub.StreamObserver;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVRecord;
+
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
@@ -19,7 +20,7 @@ public class IlluminateClient {
                 .usePlaintext()
                 .build();
 
-        IlluminateServiceGrpc.IlluminateServiceBlockingStub stub = IlluminateServiceGrpc.newBlockingStub(channel);
+        IlluminateServiceGrpc.IlluminateServiceStub asyncStub = IlluminateServiceGrpc.newStub(channel);
 
         CountDownLatch latch = new CountDownLatch(1);
 
@@ -40,7 +41,7 @@ public class IlluminateClient {
             }
         };
 
-        StreamObserver<IlluminateRequest> requestObserver = stub.
+        StreamObserver<IlluminateRequest> requestObserver = asyncStub.illuminate(responseObserver);
 
         try (Reader reader = new FileReader("../files/illuminate.csv");
              CSVParser csvParser = new CSVParser(reader, CSVFormat.DEFAULT)) {

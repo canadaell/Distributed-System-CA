@@ -16,7 +16,7 @@ public class IlluminateServiceImpl extends IlluminateServiceGrpc.IlluminateServi
     private Map<Integer, Map<Integer, Integer>> dataMap = new HashMap<>();
 
     public IlluminateServiceImpl() {
-        try (Reader reader = new FileReader("../files/illuminate.csv");
+        try (Reader reader = new FileReader("distributed-system-CA\files\\illuminate.csv");
              CSVParser csvParser = new CSVParser(reader, CSVFormat.DEFAULT)) {
 
             for (CSVRecord csvRecord : csvParser) {

@@ -46,6 +46,6 @@ public class IrrigationClient {
         requestObserver.onNext(irrigationRequest);
         requestObserver.onCompleted();
 
-        channel.shutdownNow().awaitTermination(5, TimeUnit.SECONDS);
+
     }
 }
