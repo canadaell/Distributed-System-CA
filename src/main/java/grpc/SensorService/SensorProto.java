@@ -45,18 +45,18 @@ public final class SensorProto {
     java.lang.String[] descriptorData = {
       "\n\014Sensor.proto\022\rSensorService\"1\n\rSensorR" +
       "equest\022\016\n\006farmid\030\001 \001(\005\022\020\n\010sensorid\030\002 \001(\005" +
-      "\"^\n\016SensorResponse\022\022\n\ntempreture\030\001 \001(\001\022\020" +
-      "\n\010humidity\030\002 \001(\001\022\020\n\010district\030\003 \001(\t\022\024\n\014il" +
-      "lumination\030\004 \001(\001\"J\n\020AddSensorRequest\022\020\n\010" +
-      "sensorid\030\001 \001(\005\022\022\n\nsensortype\030\002 \001(\t\022\020\n\010lo" +
-      "cation\030\003 \001(\t\"5\n\021AddSensorResponse\022\017\n\007suc" +
-      "cess\030\001 \001(\010\022\017\n\007message\030\002 \001(\t2\262\001\n\rSensorSe" +
-      "rvice\022Q\n\020StreamSensorData\022\034.SensorServic" +
-      "e.SensorRequest\032\035.SensorService.SensorRe" +
-      "sponse0\001\022N\n\tAddSensor\022\037.SensorService.Ad" +
-      "dSensorRequest\032 .SensorService.AddSensor" +
-      "ResponseB#\n\022grpc.SensorServiceB\013SensorPr" +
-      "otoP\001b\006proto3"
+      "\"`\n\016SensorResponse\022\022\n\ntempreture\030\001 \001(\001\022\020" +
+      "\n\010humidity\030\002 \001(\001\022\022\n\ndistrictid\030\003 \001(\005\022\024\n\014" +
+      "illumination\030\004 \001(\005\"L\n\020AddSensorRequest\022\020" +
+      "\n\010sensorid\030\001 \001(\005\022\022\n\nsensortype\030\002 \001(\t\022\022\n\n" +
+      "districtid\030\003 \001(\005\"5\n\021AddSensorResponse\022\017\n" +
+      "\007success\030\001 \001(\010\022\017\n\007message\030\002 \001(\t2\262\001\n\rSens" +
+      "orService\022Q\n\020StreamSensorData\022\034.SensorSe" +
+      "rvice.SensorRequest\032\035.SensorService.Sens" +
+      "orResponse0\001\022N\n\tAddSensor\022\037.SensorServic" +
+      "e.AddSensorRequest\032 .SensorService.AddSe" +
+      "nsorResponseB#\n\022grpc.SensorServiceB\013Sens" +
+      "orProtoP\001b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -73,13 +73,13 @@ public final class SensorProto {
     internal_static_SensorService_SensorResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_SensorService_SensorResponse_descriptor,
-        new java.lang.String[] { "Tempreture", "Humidity", "District", "Illumination", });
+        new java.lang.String[] { "Tempreture", "Humidity", "Districtid", "Illumination", });
     internal_static_SensorService_AddSensorRequest_descriptor =
       getDescriptor().getMessageTypes().get(2);
     internal_static_SensorService_AddSensorRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_SensorService_AddSensorRequest_descriptor,
-        new java.lang.String[] { "Sensorid", "Sensortype", "Location", });
+        new java.lang.String[] { "Sensorid", "Sensortype", "Districtid", });
     internal_static_SensorService_AddSensorResponse_descriptor =
       getDescriptor().getMessageTypes().get(3);
     internal_static_SensorService_AddSensorResponse_fieldAccessorTable = new

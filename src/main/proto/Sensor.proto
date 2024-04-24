@@ -18,15 +18,15 @@ message SensorRequest {
 
 message SensorResponse {
   double tempreture = 1;
-  double humidity = 2;
-  string district = 3;
-  double illumination = 4;
+  int32 humidity = 2;
+  int32 districtid = 3;
+  int32 illumination = 4;
 }
 
 message AddSensorRequest {
   int32 sensorid = 1;
   string sensortype = 2;
-  string location = 3;
+  int32 districtid = 3;
 }
 
 message AddSensorResponse {

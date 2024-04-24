@@ -22,12 +22,12 @@ public class SensorServiceImpl extends SensorServiceGrpc.SensorServiceImplBase {
             for (CSVRecord csvRecord : csvParser) {
                 int farmId = Integer.parseInt(csvRecord.get("farm_id"));
                 int sensorId = Integer.parseInt(csvRecord.get("sensor_id"));
-                String district = csvRecord.get("district");
+                int districtId = Integer.parseInt(csvRecord.get("districtid"));
                 double temperature = Double.parseDouble(csvRecord.get("temperature"));
-                double illumination = Double.parseDouble(csvRecord.get("illumination"));
+                int illumination = Integer.parseInt(csvRecord.get("illumination"));
                 double humidity = Double.parseDouble(csvRecord.get("humidity"));
 
-                SENSOR_DATA.add(new SensorData(farmId, sensorId, district, temperature, humidity, illumination));
+                SENSOR_DATA.add(new SensorData(farmId, sensorId, districtId, temperature, humidity, illumination));
             }
 
         } catch (IOException e) {
@@ -49,9 +49,10 @@ public class SensorServiceImpl extends SensorServiceGrpc.SensorServiceImplBase {
                         SensorResponse response = SensorResponse.newBuilder()
                                 .setTempreture(sensorData.getTemperature())
                                 .setHumidity(sensorData.getHumidity())
-                                .setDistrict(sensorData.getDistrict())
+                                .setDistrictid(sensorData.getDistrictId())
                                 .setIllumination(sensorData.getIllumination())
                                 .build();
+
 
                         responseObserver.onNext(response);
                     }
@@ -81,15 +82,15 @@ public class SensorServiceImpl extends SensorServiceGrpc.SensorServiceImplBase {
     private static class SensorData {
         private final int farmId;
         private final int sensorId;
-        private final String district;
+        private final int districtid;
         private final double temperature;
         private final double humidity;
-        private final double illumination;
+        private final int illumination;
 
-        public SensorData(int farmId, int sensorId, String district, double temperature, double humidity, double illumination) {
+        public SensorData(int farmId, int sensorId, int districtId, double temperature, double humidity, int illumination) {
             this.farmId = farmId;
             this.sensorId = sensorId;
-            this.district = district;
+            this.districtid = districtId;
             this.temperature = temperature;
             this.humidity = humidity;
             this.illumination = illumination;
@@ -103,8 +104,8 @@ public class SensorServiceImpl extends SensorServiceGrpc.SensorServiceImplBase {
             return sensorId;
         }
 
-        public String getDistrict() { // Add getter method for district field
-            return district;
+        public int getDistrictId() {
+            return districtid;
         }
 
         public double getTemperature() {
@@ -115,7 +116,7 @@ public class SensorServiceImpl extends SensorServiceGrpc.SensorServiceImplBase {
             return humidity;
         }
 
-        public double getIllumination() {
+        public int getIllumination() {
             return illumination;
         }
     }

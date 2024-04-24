@@ -17,7 +17,6 @@ private static final long serialVersionUID = 0L;
   }
   private AddSensorRequest() {
     sensortype_ = "";
-    location_ = "";
   }
 
   @java.lang.Override
@@ -94,42 +93,15 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int LOCATION_FIELD_NUMBER = 3;
-  private volatile java.lang.Object location_;
+  public static final int DISTRICTID_FIELD_NUMBER = 3;
+  private int districtid_;
   /**
-   * <code>string location = 3;</code>
-   * @return The location.
+   * <code>int32 districtid = 3;</code>
+   * @return The districtid.
    */
   @java.lang.Override
-  public java.lang.String getLocation() {
-    java.lang.Object ref = location_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      location_ = s;
-      return s;
-    }
-  }
-  /**
-   * <code>string location = 3;</code>
-   * @return The bytes for location.
-   */
-  @java.lang.Override
-  public com.google.protobuf.ByteString
-      getLocationBytes() {
-    java.lang.Object ref = location_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      location_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
+  public int getDistrictid() {
+    return districtid_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -152,8 +124,8 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(sensortype_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 2, sensortype_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(location_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 3, location_);
+    if (districtid_ != 0) {
+      output.writeInt32(3, districtid_);
     }
     getUnknownFields().writeTo(output);
   }
@@ -171,8 +143,9 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(sensortype_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, sensortype_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(location_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, location_);
+    if (districtid_ != 0) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt32Size(3, districtid_);
     }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
@@ -193,8 +166,8 @@ private static final long serialVersionUID = 0L;
         != other.getSensorid()) return false;
     if (!getSensortype()
         .equals(other.getSensortype())) return false;
-    if (!getLocation()
-        .equals(other.getLocation())) return false;
+    if (getDistrictid()
+        != other.getDistrictid()) return false;
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -210,8 +183,8 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getSensorid();
     hash = (37 * hash) + SENSORTYPE_FIELD_NUMBER;
     hash = (53 * hash) + getSensortype().hashCode();
-    hash = (37 * hash) + LOCATION_FIELD_NUMBER;
-    hash = (53 * hash) + getLocation().hashCode();
+    hash = (37 * hash) + DISTRICTID_FIELD_NUMBER;
+    hash = (53 * hash) + getDistrictid();
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -344,7 +317,7 @@ private static final long serialVersionUID = 0L;
 
       sensortype_ = "";
 
-      location_ = "";
+      districtid_ = 0;
 
       return this;
     }
@@ -374,7 +347,7 @@ private static final long serialVersionUID = 0L;
       grpc.SensorService.AddSensorRequest result = new grpc.SensorService.AddSensorRequest(this);
       result.sensorid_ = sensorid_;
       result.sensortype_ = sensortype_;
-      result.location_ = location_;
+      result.districtid_ = districtid_;
       onBuilt();
       return result;
     }
@@ -430,9 +403,8 @@ private static final long serialVersionUID = 0L;
         sensortype_ = other.sensortype_;
         onChanged();
       }
-      if (!other.getLocation().isEmpty()) {
-        location_ = other.location_;
-        onChanged();
+      if (other.getDistrictid() != 0) {
+        setDistrictid(other.getDistrictid());
       }
       this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
@@ -470,11 +442,11 @@ private static final long serialVersionUID = 0L;
 
               break;
             } // case 18
-            case 26: {
-              location_ = input.readStringRequireUtf8();
+            case 24: {
+              districtid_ = input.readInt32();
 
               break;
-            } // case 26
+            } // case 24
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -598,78 +570,33 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object location_ = "";
+    private int districtid_ ;
     /**
-     * <code>string location = 3;</code>
-     * @return The location.
+     * <code>int32 districtid = 3;</code>
+     * @return The districtid.
      */
-    public java.lang.String getLocation() {
-      java.lang.Object ref = location_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        location_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
+    @java.lang.Override
+    public int getDistrictid() {
+      return districtid_;
     }
     /**
-     * <code>string location = 3;</code>
-     * @return The bytes for location.
-     */
-    public com.google.protobuf.ByteString
-        getLocationBytes() {
-      java.lang.Object ref = location_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        location_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <code>string location = 3;</code>
-     * @param value The location to set.
+     * <code>int32 districtid = 3;</code>
+     * @param value The districtid to set.
      * @return This builder for chaining.
      */
-    public Builder setLocation(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      location_ = value;
+    public Builder setDistrictid(int value) {
+      
+      districtid_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>string location = 3;</code>
+     * <code>int32 districtid = 3;</code>
      * @return This builder for chaining.
      */
-    public Builder clearLocation() {
+    public Builder clearDistrictid() {
       
-      location_ = getDefaultInstance().getLocation();
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string location = 3;</code>
-     * @param value The bytes for location to set.
-     * @return This builder for chaining.
-     */
-    public Builder setLocationBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      location_ = value;
+      districtid_ = 0;
       onChanged();
       return this;
     }

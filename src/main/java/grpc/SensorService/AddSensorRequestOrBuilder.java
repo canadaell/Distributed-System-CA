@@ -26,14 +26,8 @@ public interface AddSensorRequestOrBuilder extends
       getSensortypeBytes();
 
   /**
-   * <code>string location = 3;</code>
-   * @return The location.
+   * <code>int32 districtid = 3;</code>
+   * @return The districtid.
    */
-  java.lang.String getLocation();
-  /**
-   * <code>string location = 3;</code>
-   * @return The bytes for location.
-   */
-  com.google.protobuf.ByteString
-      getLocationBytes();
+  int getDistrictid();
 }

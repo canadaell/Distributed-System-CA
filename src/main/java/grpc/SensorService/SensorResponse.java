@@ -16,7 +16,6 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private SensorResponse() {
-    district_ = "";
   }
 
   @java.lang.Override
@@ -66,52 +65,25 @@ private static final long serialVersionUID = 0L;
     return humidity_;
   }
 
-  public static final int DISTRICT_FIELD_NUMBER = 3;
-  private volatile java.lang.Object district_;
+  public static final int DISTRICTID_FIELD_NUMBER = 3;
+  private int districtid_;
   /**
-   * <code>string district = 3;</code>
-   * @return The district.
+   * <code>int32 districtid = 3;</code>
+   * @return The districtid.
    */
   @java.lang.Override
-  public java.lang.String getDistrict() {
-    java.lang.Object ref = district_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      district_ = s;
-      return s;
-    }
-  }
-  /**
-   * <code>string district = 3;</code>
-   * @return The bytes for district.
-   */
-  @java.lang.Override
-  public com.google.protobuf.ByteString
-      getDistrictBytes() {
-    java.lang.Object ref = district_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      district_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
+  public int getDistrictid() {
+    return districtid_;
   }
 
   public static final int ILLUMINATION_FIELD_NUMBER = 4;
-  private double illumination_;
+  private int illumination_;
   /**
-   * <code>double illumination = 4;</code>
+   * <code>int32 illumination = 4;</code>
    * @return The illumination.
    */
   @java.lang.Override
-  public double getIllumination() {
+  public int getIllumination() {
     return illumination_;
   }
 
@@ -135,11 +107,11 @@ private static final long serialVersionUID = 0L;
     if (java.lang.Double.doubleToRawLongBits(humidity_) != 0) {
       output.writeDouble(2, humidity_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(district_)) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 3, district_);
+    if (districtid_ != 0) {
+      output.writeInt32(3, districtid_);
     }
-    if (java.lang.Double.doubleToRawLongBits(illumination_) != 0) {
-      output.writeDouble(4, illumination_);
+    if (illumination_ != 0) {
+      output.writeInt32(4, illumination_);
     }
     getUnknownFields().writeTo(output);
   }
@@ -158,12 +130,13 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeDoubleSize(2, humidity_);
     }
-    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(district_)) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, district_);
-    }
-    if (java.lang.Double.doubleToRawLongBits(illumination_) != 0) {
+    if (districtid_ != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeDoubleSize(4, illumination_);
+        .computeInt32Size(3, districtid_);
+    }
+    if (illumination_ != 0) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt32Size(4, illumination_);
     }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
@@ -186,11 +159,10 @@ private static final long serialVersionUID = 0L;
     if (java.lang.Double.doubleToLongBits(getHumidity())
         != java.lang.Double.doubleToLongBits(
             other.getHumidity())) return false;
-    if (!getDistrict()
-        .equals(other.getDistrict())) return false;
-    if (java.lang.Double.doubleToLongBits(getIllumination())
-        != java.lang.Double.doubleToLongBits(
-            other.getIllumination())) return false;
+    if (getDistrictid()
+        != other.getDistrictid()) return false;
+    if (getIllumination()
+        != other.getIllumination()) return false;
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -208,11 +180,10 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + HUMIDITY_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
         java.lang.Double.doubleToLongBits(getHumidity()));
-    hash = (37 * hash) + DISTRICT_FIELD_NUMBER;
-    hash = (53 * hash) + getDistrict().hashCode();
+    hash = (37 * hash) + DISTRICTID_FIELD_NUMBER;
+    hash = (53 * hash) + getDistrictid();
     hash = (37 * hash) + ILLUMINATION_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        java.lang.Double.doubleToLongBits(getIllumination()));
+    hash = (53 * hash) + getIllumination();
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -345,9 +316,9 @@ private static final long serialVersionUID = 0L;
 
       humidity_ = 0D;
 
-      district_ = "";
+      districtid_ = 0;
 
-      illumination_ = 0D;
+      illumination_ = 0;
 
       return this;
     }
@@ -377,7 +348,7 @@ private static final long serialVersionUID = 0L;
       grpc.SensorService.SensorResponse result = new grpc.SensorService.SensorResponse(this);
       result.tempreture_ = tempreture_;
       result.humidity_ = humidity_;
-      result.district_ = district_;
+      result.districtid_ = districtid_;
       result.illumination_ = illumination_;
       onBuilt();
       return result;
@@ -433,11 +404,10 @@ private static final long serialVersionUID = 0L;
       if (other.getHumidity() != 0D) {
         setHumidity(other.getHumidity());
       }
-      if (!other.getDistrict().isEmpty()) {
-        district_ = other.district_;
-        onChanged();
+      if (other.getDistrictid() != 0) {
+        setDistrictid(other.getDistrictid());
       }
-      if (other.getIllumination() != 0D) {
+      if (other.getIllumination() != 0) {
         setIllumination(other.getIllumination());
       }
       this.mergeUnknownFields(other.getUnknownFields());
@@ -476,16 +446,16 @@ private static final long serialVersionUID = 0L;
 
               break;
             } // case 17
-            case 26: {
-              district_ = input.readStringRequireUtf8();
+            case 24: {
+              districtid_ = input.readInt32();
 
               break;
-            } // case 26
-            case 33: {
-              illumination_ = input.readDouble();
+            } // case 24
+            case 32: {
+              illumination_ = input.readInt32();
 
               break;
-            } // case 33
+            } // case 32
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -564,109 +534,64 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object district_ = "";
+    private int districtid_ ;
     /**
-     * <code>string district = 3;</code>
-     * @return The district.
+     * <code>int32 districtid = 3;</code>
+     * @return The districtid.
      */
-    public java.lang.String getDistrict() {
-      java.lang.Object ref = district_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        district_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
+    @java.lang.Override
+    public int getDistrictid() {
+      return districtid_;
     }
     /**
-     * <code>string district = 3;</code>
-     * @return The bytes for district.
-     */
-    public com.google.protobuf.ByteString
-        getDistrictBytes() {
-      java.lang.Object ref = district_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        district_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <code>string district = 3;</code>
-     * @param value The district to set.
+     * <code>int32 districtid = 3;</code>
+     * @param value The districtid to set.
      * @return This builder for chaining.
      */
-    public Builder setDistrict(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      district_ = value;
+    public Builder setDistrictid(int value) {
+      
+      districtid_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>string district = 3;</code>
+     * <code>int32 districtid = 3;</code>
      * @return This builder for chaining.
      */
-    public Builder clearDistrict() {
+    public Builder clearDistrictid() {
       
-      district_ = getDefaultInstance().getDistrict();
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string district = 3;</code>
-     * @param value The bytes for district to set.
-     * @return This builder for chaining.
-     */
-    public Builder setDistrictBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      district_ = value;
+      districtid_ = 0;
       onChanged();
       return this;
     }
 
-    private double illumination_ ;
+    private int illumination_ ;
     /**
-     * <code>double illumination = 4;</code>
+     * <code>int32 illumination = 4;</code>
      * @return The illumination.
      */
     @java.lang.Override
-    public double getIllumination() {
+    public int getIllumination() {
       return illumination_;
     }
     /**
-     * <code>double illumination = 4;</code>
+     * <code>int32 illumination = 4;</code>
      * @param value The illumination to set.
      * @return This builder for chaining.
      */
-    public Builder setIllumination(double value) {
+    public Builder setIllumination(int value) {
       
       illumination_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>double illumination = 4;</code>
+     * <code>int32 illumination = 4;</code>
      * @return This builder for chaining.
      */
     public Builder clearIllumination() {
       
-      illumination_ = 0D;
+      illumination_ = 0;
       onChanged();
       return this;
     }

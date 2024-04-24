@@ -20,20 +20,14 @@ public interface SensorResponseOrBuilder extends
   double getHumidity();
 
   /**
-   * <code>string district = 3;</code>
-   * @return The district.
+   * <code>int32 districtid = 3;</code>
+   * @return The districtid.
    */
-  java.lang.String getDistrict();
-  /**
-   * <code>string district = 3;</code>
-   * @return The bytes for district.
-   */
-  com.google.protobuf.ByteString
-      getDistrictBytes();
+  int getDistrictid();
 
   /**
-   * <code>double illumination = 4;</code>
+   * <code>int32 illumination = 4;</code>
    * @return The illumination.
    */
-  double getIllumination();
+  int getIllumination();
 }

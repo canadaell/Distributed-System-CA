@@ -16,18 +16,18 @@ public class IlluminateServiceImpl extends IlluminateServiceGrpc.IlluminateServi
     private Map<Integer, Map<Integer, Integer>> dataMap = new HashMap<>();
 
     public IlluminateServiceImpl() {
-        try (Reader reader = new FileReader("distributed-system-CA\files\\illuminate.csv");
+        try (Reader reader = new FileReader("C:\\Users\\15305\\Downloads\\distributed-system-CA\\files\\illuminate.csv");
              CSVParser csvParser = new CSVParser(reader, CSVFormat.DEFAULT)) {
 
             for (CSVRecord csvRecord : csvParser) {
-                int farmId = Integer.parseInt(csvRecord.get("farm_id"));
-                int districtId = Integer.parseInt(csvRecord.get("district_id"));
+                int farmid = Integer.parseInt(csvRecord.get("farmid"));
+                int districtid = Integer.parseInt(csvRecord.get("districtid"));
                 int duration = Integer.parseInt(csvRecord.get("duration"));
 
-                if (!dataMap.containsKey(farmId)) {
-                    dataMap.put(farmId, new HashMap<>());
+                if (!dataMap.containsKey(farmid)) {
+                    dataMap.put(farmid, new HashMap<>());
                 }
-                dataMap.get(farmId).put(districtId, duration);
+                dataMap.get(farmid).put(districtid, duration);
             }
 
         } catch (IOException e) {
@@ -40,14 +40,14 @@ public class IlluminateServiceImpl extends IlluminateServiceGrpc.IlluminateServi
         return new StreamObserver<IlluminateRequest>() {
             @Override
             public void onNext(IlluminateRequest illuminateRequest) {
-                int farmId = illuminateRequest.getFarmid();
-                int districtId = illuminateRequest.getDistrictid();
+                int farmid = illuminateRequest.getFarmid();
+                int districtid = illuminateRequest.getDistrictid();
 
-                if (dataMap.containsKey(farmId) && dataMap.get(farmId).containsKey(districtId)) {
-                    int duration = dataMap.get(farmId).get(districtId);
+                if (dataMap.containsKey(farmid) && dataMap.get(farmid).containsKey(districtid)) {
+                    int duration = dataMap.get(farmid).get(districtid);
 
                     boolean success = true;
-                    String message = "Processing request: " + farmId + ", " + districtId + ", " + duration;
+                    String message = "Processing request: " + farmid + ", " + districtid + ", " + duration;
                     IlluminateResponse response = IlluminateResponse.newBuilder()
                             .setSuccess(success)
                             .setMessage(message)

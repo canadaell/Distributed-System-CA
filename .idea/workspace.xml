@@ -6,9 +6,17 @@
   <component name="ChangeListManager">
     <list default="true" id="5af600b7-a28b-4933-bfe4-6185cb56e5d7" name="更改" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/grpc/IlluminateClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/grpc/IlluminateClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/files/illuminate.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/files/irrigation.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/files/sensor.csv" beforeDir="false" afterPath="$PROJECT_DIR$/files/sensor.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/grpc/IlluminateService/IlluminateServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/grpc/IlluminateService/IlluminateServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/grpc/SensorService/IrrigationClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/grpc/SensorService/IrrigationClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/grpc/SensorService/AddSensorRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/grpc/SensorService/AddSensorRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/grpc/SensorService/AddSensorRequestOrBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/grpc/SensorService/AddSensorRequestOrBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/grpc/SensorService/SensorProto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/grpc/SensorService/SensorProto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/grpc/SensorService/SensorResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/grpc/SensorService/SensorResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/grpc/SensorService/SensorResponseOrBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/grpc/SensorService/SensorResponseOrBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/grpc/SensorService/SensorServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/grpc/SensorService/SensorServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/proto/Sensor.proto" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/proto/Sensor.proto" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
