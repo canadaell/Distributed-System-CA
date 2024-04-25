@@ -24,7 +24,7 @@ public class IrrigationServiceImpl extends IrrigationServiceGrpc.IrrigationServi
             public void onNext(IrrigationRequest irrigationRequest) {
                 System.out.println("Received irrigation request");
 
-                try (CSVReader reader = new CSVReader(new FileReader("../files/irrigation.csv"))) {
+                try (CSVReader reader = new CSVReader(new FileReader("C:\\Users\\15305\\Downloads\\distributed-system-CA\\files\\irrigation.csv"))) {
                     List<String[]> records = reader.readAll();
 
                     for (String[] record : records) {

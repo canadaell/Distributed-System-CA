@@ -15,8 +15,8 @@ import java.util.concurrent.CountDownLatch;
 
 public class IlluminateClient {
 
-    public static void main(String[] args) throws InterruptedException, IOException {
-        ManagedChannel channel = ManagedChannelBuilder.forAddress("illuminate", 9002)
+    public static void main(String[] args) throws InterruptedException {
+        ManagedChannel channel = ManagedChannelBuilder.forAddress("localhost", 9002)
                 .usePlaintext()
                 .build();
 
@@ -43,8 +43,11 @@ public class IlluminateClient {
 
         StreamObserver<IlluminateRequest> requestObserver = asyncStub.illuminate(responseObserver);
 
-        try (Reader reader = new FileReader("../files/illuminate.csv");
-             CSVParser csvParser = new CSVParser(reader, CSVFormat.DEFAULT)) {
+        String[] headers = {"farmid", "districtid", "duration"};
+        CSVFormat csvFormat = CSVFormat.DEFAULT.withHeader(headers).withSkipHeaderRecord();
+
+        try (Reader reader = new FileReader("C:\\Users\\15305\\Downloads\\distributed-system-CA\\files\\illuminate1.csv");
+             CSVParser csvParser = new CSVParser(reader, csvFormat)) {
 
             for (CSVRecord csvRecord : csvParser) {
                 int farmId = Integer.parseInt(csvRecord.get("farmid"));

@@ -16,14 +16,17 @@ public class IlluminateServiceImpl extends IlluminateServiceGrpc.IlluminateServi
     private Map<Integer, Map<Integer, Integer>> dataMap = new HashMap<>();
 
     public IlluminateServiceImpl() {
-        try (Reader reader = new FileReader("C:\\Users\\15305\\Downloads\\distributed-system-CA\\files\\illuminate.csv");
-             CSVParser csvParser = new CSVParser(reader, CSVFormat.DEFAULT)) {
+
+        String[] headers = {"farmid", "districtid", "duration"};
+        CSVFormat csvFormat = CSVFormat.DEFAULT.withHeader(headers).withSkipHeaderRecord();
+
+        try (Reader reader = new FileReader("C:\\Users\\15305\\Downloads\\distributed-system-CA\\files\\illuminate1.csv");
+             CSVParser csvParser = new CSVParser(reader, csvFormat)) {
 
             for (CSVRecord csvRecord : csvParser) {
                 int farmid = Integer.parseInt(csvRecord.get("farmid"));
                 int districtid = Integer.parseInt(csvRecord.get("districtid"));
                 int duration = Integer.parseInt(csvRecord.get("duration"));
-
                 if (!dataMap.containsKey(farmid)) {
                     dataMap.put(farmid, new HashMap<>());
                 }
