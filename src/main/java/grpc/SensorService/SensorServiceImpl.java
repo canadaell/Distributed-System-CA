@@ -16,7 +16,7 @@ public class SensorServiceImpl extends SensorServiceGrpc.SensorServiceImplBase {
     private static final List<SensorData> SENSOR_DATA = new CopyOnWriteArrayList<>();
 
     static {
-        try (Reader reader = new FileReader("../files/sensor.csv");
+        try (Reader reader = new FileReader("C:\\Users\\15305\\Downloads\\distributed-system-CA\\files\\sensor.csv");
              CSVParser csvParser = new CSVParser(reader, CSVFormat.DEFAULT)) {
 
             for (CSVRecord csvRecord : csvParser) {

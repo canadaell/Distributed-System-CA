@@ -23,7 +23,6 @@ public class IrrigationServiceImpl extends IrrigationServiceGrpc.IrrigationServi
             @Override
             public void onNext(IrrigationRequest irrigationRequest) {
                 System.out.println("Received irrigation request");
-
                 try (CSVReader reader = new CSVReader(new FileReader("C:\\Users\\15305\\Downloads\\distributed-system-CA\\files\\irrigation.csv"))) {
                     List<String[]> records = reader.readAll();
 
@@ -42,7 +41,7 @@ public class IrrigationServiceImpl extends IrrigationServiceGrpc.IrrigationServi
                         responseObserver.onNext(irrigationResponse);
                     }
                 } catch (IOException | CsvException e) {
-                    System.err.println("Error reading CSV file: " + e.getMessage());
+                    System.err.println("Error reading data: " + e.getMessage());
                 }
             }
 
