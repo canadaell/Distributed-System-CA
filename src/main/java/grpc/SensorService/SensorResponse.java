@@ -55,13 +55,13 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int HUMIDITY_FIELD_NUMBER = 2;
-  private double humidity_;
+  private int humidity_;
   /**
-   * <code>double humidity = 2;</code>
+   * <code>int32 humidity = 2;</code>
    * @return The humidity.
    */
   @java.lang.Override
-  public double getHumidity() {
+  public int getHumidity() {
     return humidity_;
   }
 
@@ -104,8 +104,8 @@ private static final long serialVersionUID = 0L;
     if (java.lang.Double.doubleToRawLongBits(tempreture_) != 0) {
       output.writeDouble(1, tempreture_);
     }
-    if (java.lang.Double.doubleToRawLongBits(humidity_) != 0) {
-      output.writeDouble(2, humidity_);
+    if (humidity_ != 0) {
+      output.writeInt32(2, humidity_);
     }
     if (districtid_ != 0) {
       output.writeInt32(3, districtid_);
@@ -126,9 +126,9 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeDoubleSize(1, tempreture_);
     }
-    if (java.lang.Double.doubleToRawLongBits(humidity_) != 0) {
+    if (humidity_ != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeDoubleSize(2, humidity_);
+        .computeInt32Size(2, humidity_);
     }
     if (districtid_ != 0) {
       size += com.google.protobuf.CodedOutputStream
@@ -156,9 +156,8 @@ private static final long serialVersionUID = 0L;
     if (java.lang.Double.doubleToLongBits(getTempreture())
         != java.lang.Double.doubleToLongBits(
             other.getTempreture())) return false;
-    if (java.lang.Double.doubleToLongBits(getHumidity())
-        != java.lang.Double.doubleToLongBits(
-            other.getHumidity())) return false;
+    if (getHumidity()
+        != other.getHumidity()) return false;
     if (getDistrictid()
         != other.getDistrictid()) return false;
     if (getIllumination()
@@ -178,8 +177,7 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
         java.lang.Double.doubleToLongBits(getTempreture()));
     hash = (37 * hash) + HUMIDITY_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        java.lang.Double.doubleToLongBits(getHumidity()));
+    hash = (53 * hash) + getHumidity();
     hash = (37 * hash) + DISTRICTID_FIELD_NUMBER;
     hash = (53 * hash) + getDistrictid();
     hash = (37 * hash) + ILLUMINATION_FIELD_NUMBER;
@@ -314,7 +312,7 @@ private static final long serialVersionUID = 0L;
       super.clear();
       tempreture_ = 0D;
 
-      humidity_ = 0D;
+      humidity_ = 0;
 
       districtid_ = 0;
 
@@ -401,7 +399,7 @@ private static final long serialVersionUID = 0L;
       if (other.getTempreture() != 0D) {
         setTempreture(other.getTempreture());
       }
-      if (other.getHumidity() != 0D) {
+      if (other.getHumidity() != 0) {
         setHumidity(other.getHumidity());
       }
       if (other.getDistrictid() != 0) {
@@ -441,11 +439,11 @@ private static final long serialVersionUID = 0L;
 
               break;
             } // case 9
-            case 17: {
-              humidity_ = input.readDouble();
+            case 16: {
+              humidity_ = input.readInt32();
 
               break;
-            } // case 17
+            } // case 16
             case 24: {
               districtid_ = input.readInt32();
 
@@ -503,33 +501,33 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private double humidity_ ;
+    private int humidity_ ;
     /**
-     * <code>double humidity = 2;</code>
+     * <code>int32 humidity = 2;</code>
      * @return The humidity.
      */
     @java.lang.Override
-    public double getHumidity() {
+    public int getHumidity() {
       return humidity_;
     }
     /**
-     * <code>double humidity = 2;</code>
+     * <code>int32 humidity = 2;</code>
      * @param value The humidity to set.
      * @return This builder for chaining.
      */
-    public Builder setHumidity(double value) {
+    public Builder setHumidity(int value) {
       
       humidity_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>double humidity = 2;</code>
+     * <code>int32 humidity = 2;</code>
      * @return This builder for chaining.
      */
     public Builder clearHumidity() {
       
-      humidity_ = 0D;
+      humidity_ = 0;
       onChanged();
       return this;
     }

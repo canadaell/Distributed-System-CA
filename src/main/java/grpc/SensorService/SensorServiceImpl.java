@@ -25,7 +25,7 @@ public class SensorServiceImpl extends SensorServiceGrpc.SensorServiceImplBase {
                 int districtId = Integer.parseInt(csvRecord.get("districtid"));
                 double temperature = Double.parseDouble(csvRecord.get("temperature"));
                 int illumination = Integer.parseInt(csvRecord.get("illumination"));
-                double humidity = Double.parseDouble(csvRecord.get("humidity"));
+                int humidity = Integer.parseInt(csvRecord.get("humidity"));
 
                 SENSOR_DATA.add(new SensorData(farmId, sensorId, districtId, temperature, humidity, illumination));
             }
@@ -84,10 +84,10 @@ public class SensorServiceImpl extends SensorServiceGrpc.SensorServiceImplBase {
         private final int sensorId;
         private final int districtid;
         private final double temperature;
-        private final double humidity;
+        private final int humidity;
         private final int illumination;
 
-        public SensorData(int farmId, int sensorId, int districtId, double temperature, double humidity, int illumination) {
+        public SensorData(int farmId, int sensorId, int districtId, double temperature, int humidity, int illumination) {
             this.farmId = farmId;
             this.sensorId = sensorId;
             this.districtid = districtId;
@@ -112,7 +112,7 @@ public class SensorServiceImpl extends SensorServiceGrpc.SensorServiceImplBase {
             return temperature;
         }
 
-        public double getHumidity() {
+        public int getHumidity() {
             return humidity;
         }
 

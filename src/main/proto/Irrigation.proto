@@ -15,6 +15,7 @@ service IrrigationService{
 message IrrigationRequest{
   int32 districtid = 1;
   int32 farmid = 2;
+  int32 volume = 3;
 }
 
 message IrrigationResponse{

@@ -65,6 +65,17 @@ private static final long serialVersionUID = 0L;
     return farmid_;
   }
 
+  public static final int VOLUME_FIELD_NUMBER = 3;
+  private int volume_;
+  /**
+   * <code>int32 volume = 3;</code>
+   * @return The volume.
+   */
+  @java.lang.Override
+  public int getVolume() {
+    return volume_;
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -85,6 +96,9 @@ private static final long serialVersionUID = 0L;
     if (farmid_ != 0) {
       output.writeInt32(2, farmid_);
     }
+    if (volume_ != 0) {
+      output.writeInt32(3, volume_);
+    }
     getUnknownFields().writeTo(output);
   }
 
@@ -101,6 +115,10 @@ private static final long serialVersionUID = 0L;
     if (farmid_ != 0) {
       size += com.google.protobuf.CodedOutputStream
         .computeInt32Size(2, farmid_);
+    }
+    if (volume_ != 0) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt32Size(3, volume_);
     }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
@@ -121,6 +139,8 @@ private static final long serialVersionUID = 0L;
         != other.getDistrictid()) return false;
     if (getFarmid()
         != other.getFarmid()) return false;
+    if (getVolume()
+        != other.getVolume()) return false;
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -136,6 +156,8 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getDistrictid();
     hash = (37 * hash) + FARMID_FIELD_NUMBER;
     hash = (53 * hash) + getFarmid();
+    hash = (37 * hash) + VOLUME_FIELD_NUMBER;
+    hash = (53 * hash) + getVolume();
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -268,6 +290,8 @@ private static final long serialVersionUID = 0L;
 
       farmid_ = 0;
 
+      volume_ = 0;
+
       return this;
     }
 
@@ -296,6 +320,7 @@ private static final long serialVersionUID = 0L;
       grpc.IrrigationService.IrrigationRequest result = new grpc.IrrigationService.IrrigationRequest(this);
       result.districtid_ = districtid_;
       result.farmid_ = farmid_;
+      result.volume_ = volume_;
       onBuilt();
       return result;
     }
@@ -350,6 +375,9 @@ private static final long serialVersionUID = 0L;
       if (other.getFarmid() != 0) {
         setFarmid(other.getFarmid());
       }
+      if (other.getVolume() != 0) {
+        setVolume(other.getVolume());
+      }
       this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
@@ -386,6 +414,11 @@ private static final long serialVersionUID = 0L;
 
               break;
             } // case 16
+            case 24: {
+              volume_ = input.readInt32();
+
+              break;
+            } // case 24
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -460,6 +493,37 @@ private static final long serialVersionUID = 0L;
     public Builder clearFarmid() {
       
       farmid_ = 0;
+      onChanged();
+      return this;
+    }
+
+    private int volume_ ;
+    /**
+     * <code>int32 volume = 3;</code>
+     * @return The volume.
+     */
+    @java.lang.Override
+    public int getVolume() {
+      return volume_;
+    }
+    /**
+     * <code>int32 volume = 3;</code>
+     * @param value The volume to set.
+     * @return This builder for chaining.
+     */
+    public Builder setVolume(int value) {
+      
+      volume_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>int32 volume = 3;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearVolume() {
+      
+      volume_ = 0;
       onChanged();
       return this;
     }

@@ -14,10 +14,10 @@ public interface SensorResponseOrBuilder extends
   double getTempreture();
 
   /**
-   * <code>double humidity = 2;</code>
+   * <code>int32 humidity = 2;</code>
    * @return The humidity.
    */
-  double getHumidity();
+  int getHumidity();
 
   /**
    * <code>int32 districtid = 3;</code>

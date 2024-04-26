@@ -46,7 +46,7 @@ public final class SensorProto {
       "\n\014Sensor.proto\022\rSensorService\"1\n\rSensorR" +
       "equest\022\016\n\006farmid\030\001 \001(\005\022\020\n\010sensorid\030\002 \001(\005" +
       "\"`\n\016SensorResponse\022\022\n\ntempreture\030\001 \001(\001\022\020" +
-      "\n\010humidity\030\002 \001(\001\022\022\n\ndistrictid\030\003 \001(\005\022\024\n\014" +
+      "\n\010humidity\030\002 \001(\005\022\022\n\ndistrictid\030\003 \001(\005\022\024\n\014" +
       "illumination\030\004 \001(\005\"L\n\020AddSensorRequest\022\020" +
       "\n\010sensorid\030\001 \001(\005\022\022\n\nsensortype\030\002 \001(\t\022\022\n\n" +
       "districtid\030\003 \001(\005\"5\n\021AddSensorResponse\022\017\n" +

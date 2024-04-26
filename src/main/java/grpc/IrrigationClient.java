@@ -1,5 +1,5 @@
 package grpc;
-import com.google.protobuf.InvalidProtocolBufferException;
+
 import grpc.IrrigationService.IrrigationRequest;
 import grpc.IrrigationService.IrrigationResponse;
 import grpc.IrrigationService.IrrigationServiceGrpc;
@@ -14,12 +14,8 @@ import java.io.Reader;
 import java.io.StringReader;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class IrrigationClient {
-
-    private static final Logger logger = Logger.getLogger(IrrigationClient.class.getName());
 
     private final ManagedChannel channel;
     private final IrrigationServiceGrpc.IrrigationServiceStub asyncStub;
@@ -33,26 +29,26 @@ public class IrrigationClient {
         asyncStub = IrrigationServiceGrpc.newStub(channel);
     }
 
-    public void irrigate(Reader csvReader) throws InvalidProtocolBufferException {
+    public void irrigate(Reader csvReader) {
         CountDownLatch latch = new CountDownLatch(1);
-        totalVolume = 0;
         StreamObserver<IrrigationResponse> responseObserver = new StreamObserver<IrrigationResponse>() {
 
             @Override
             public void onNext(IrrigationResponse value) {
                 totalVolume += value.getVolume();
-                logger.info("Received irrigation response: success=" + value.getSuccess() + ", volume=" + value.getVolume() + ", totalVolume=" + totalVolume);
+                System.out.println("Received irrigation response: success=" + value.getSuccess());
             }
 
             @Override
             public void onError(Throwable t) {
-                logger.log(Level.WARNING, "Error in client information streaming: ", t);
+                System.err.println("Error in client information streaming: ");
+                t.printStackTrace();
                 latch.countDown();
             }
 
             @Override
             public void onCompleted() {
-                logger.info("Irrigation completed. TotalVolume: " + totalVolume);
+                System.out.println("Irrigation completed. TotalVolume: " + totalVolume);
                 latch.countDown();
             }
         };
@@ -63,15 +59,18 @@ public class IrrigationClient {
             for (CSVRecord csvRecord : csvParser) {
                 int farmId = Integer.parseInt(csvRecord.get(0));
                 int districtId = Integer.parseInt(csvRecord.get(1));
+                int volume = 100;
 
                 IrrigationRequest irrigationRequest = IrrigationRequest.newBuilder()
                         .setFarmid(farmId)
                         .setDistrictid(districtId)
+                        .setVolume(volume)
                         .build();
                 requestObserver.onNext(irrigationRequest);
             }
         } catch (IOException e) {
-            logger.log(Level.WARNING, "Error reading CSV file: ", e);
+            System.err.println("Error reading CSV file: ");
+            e.printStackTrace();
         }
 
         requestObserver.onCompleted();
@@ -79,7 +78,8 @@ public class IrrigationClient {
         try {
             latch.await(1, TimeUnit.MINUTES);
         } catch (InterruptedException e) {
-            logger.log(Level.WARNING, "Error waiting for server response: ", e);
+            System.err.println("Error waiting for server response: ");
+            e.printStackTrace();
         }
     }
 
@@ -91,8 +91,6 @@ public class IrrigationClient {
 
         try {
             client.irrigate(csvReader);
-        } catch (InvalidProtocolBufferException e) {
-            logger.log(Level.WARNING, "Error in client irrigation: ", e);
         } finally {
             client.shutdown();
         }
@@ -103,7 +101,8 @@ public class IrrigationClient {
             try {
                 channel.shutdownNow().awaitTermination(5, TimeUnit.SECONDS);
             } catch (InterruptedException e) {
-                logger.log(Level.WARNING, "Error waiting for channel termination: ", e);
+                System.err.println("Error waiting for channel termination: ");
+                e.printStackTrace();
                 Thread.currentThread().interrupt();
             }
         }

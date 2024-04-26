@@ -18,4 +18,10 @@ public interface IrrigationRequestOrBuilder extends
    * @return The farmid.
    */
   int getFarmid();
+
+  /**
+   * <code>int32 volume = 3;</code>
+   * @return The volume.
+   */
+  int getVolume();
 }

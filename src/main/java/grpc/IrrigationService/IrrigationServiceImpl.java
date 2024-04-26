@@ -1,47 +1,54 @@
 package grpc.IrrigationService;
 
-import com.opencsv.CSVReader;
-import com.opencsv.exceptions.CsvException;
 import io.grpc.stub.StreamObserver;
+import org.apache.commons.csv.CSVFormat;
+import org.apache.commons.csv.CSVParser;
+import org.apache.commons.csv.CSVRecord;
 
-import java.io.FileReader;
 import java.io.IOException;
-import java.util.List;
+import java.io.Reader;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.HashMap;
+import java.util.Map;
 
 public class IrrigationServiceImpl extends IrrigationServiceGrpc.IrrigationServiceImplBase {
 
-    int totalVolume;
+    private final Map<String, Integer> irrigationData;
 
-    private int processIrrigationRequest(int farmId, int districtId) {
-        // Process the irrigation request and return the volume of water used
-        return 100;
+    public IrrigationServiceImpl() throws IOException {
+        irrigationData = new HashMap<>();
+        try (Reader reader = Files.newBufferedReader(Paths.get("C:\\Users\\15305\\Downloads\\distributed-system-CA\\files\\irrigation1.csv"))) {
+            CSVParser csvParser = new CSVParser(reader, CSVFormat.DEFAULT);
+            for (CSVRecord record : csvParser) {
+                String key = record.get(0) + "," + record.get(1);
+                int volume = 100;
+                irrigationData.put(key, volume);
+            }
+        }
     }
 
     @Override
     public StreamObserver<IrrigationRequest> irrigation(StreamObserver<IrrigationResponse> responseObserver) {
         return new StreamObserver<IrrigationRequest>() {
+            int totalVolume = 0;
+
             @Override
             public void onNext(IrrigationRequest irrigationRequest) {
                 System.out.println("Received irrigation request");
-                try (CSVReader reader = new CSVReader(new FileReader("C:\\Users\\15305\\Downloads\\distributed-system-CA\\files\\irrigation.csv"))) {
-                    List<String[]> records = reader.readAll();
+                String key = irrigationRequest.getFarmid() + "," + irrigationRequest.getDistrictid();
+                Integer volume = irrigationData.get(key);
 
-                    for (String[] record : records) {
-                        int farmId = Integer.parseInt(record[0]);
-                        int districtId = Integer.parseInt(record[1]);
+                if (volume != null) {
+                    totalVolume += volume;
 
-                        int volume = processIrrigationRequest(farmId, districtId);
-                        totalVolume += volume;
-
-                        // Send the processing result to the client
-                        IrrigationResponse irrigationResponse = IrrigationResponse.newBuilder()
-                                .setSuccess(true)
-                                .setVolume(volume)
-                                .build();
-                        responseObserver.onNext(irrigationResponse);
-                    }
-                } catch (IOException | CsvException e) {
-                    System.err.println("Error reading data: " + e.getMessage());
+                    IrrigationResponse irrigationResponse = IrrigationResponse.newBuilder()
+                            .setSuccess(true)
+                            .setVolume(volume)
+                            .build();
+                    responseObserver.onNext(irrigationResponse);
+                } else {
+                    System.err.println("Error: No data found for farmId=" + irrigationRequest.getFarmid() + " and districtId=" + irrigationRequest.getDistrictid());
                 }
             }
 
