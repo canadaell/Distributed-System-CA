@@ -43,26 +43,15 @@ private static final long serialVersionUID = 0L;
             grpc.SensorService.SensorRequest.class, grpc.SensorService.SensorRequest.Builder.class);
   }
 
-  public static final int FARMID_FIELD_NUMBER = 1;
-  private int farmid_;
+  public static final int START_FIELD_NUMBER = 1;
+  private boolean start_;
   /**
-   * <code>int32 farmid = 1;</code>
-   * @return The farmid.
+   * <code>bool start = 1;</code>
+   * @return The start.
    */
   @java.lang.Override
-  public int getFarmid() {
-    return farmid_;
-  }
-
-  public static final int SENSORID_FIELD_NUMBER = 2;
-  private int sensorid_;
-  /**
-   * <code>int32 sensorid = 2;</code>
-   * @return The sensorid.
-   */
-  @java.lang.Override
-  public int getSensorid() {
-    return sensorid_;
+  public boolean getStart() {
+    return start_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -79,11 +68,8 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (farmid_ != 0) {
-      output.writeInt32(1, farmid_);
-    }
-    if (sensorid_ != 0) {
-      output.writeInt32(2, sensorid_);
+    if (start_ != false) {
+      output.writeBool(1, start_);
     }
     getUnknownFields().writeTo(output);
   }
@@ -94,13 +80,9 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (farmid_ != 0) {
+    if (start_ != false) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(1, farmid_);
-    }
-    if (sensorid_ != 0) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(2, sensorid_);
+        .computeBoolSize(1, start_);
     }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
@@ -117,10 +99,8 @@ private static final long serialVersionUID = 0L;
     }
     grpc.SensorService.SensorRequest other = (grpc.SensorService.SensorRequest) obj;
 
-    if (getFarmid()
-        != other.getFarmid()) return false;
-    if (getSensorid()
-        != other.getSensorid()) return false;
+    if (getStart()
+        != other.getStart()) return false;
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
@@ -132,10 +112,9 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    hash = (37 * hash) + FARMID_FIELD_NUMBER;
-    hash = (53 * hash) + getFarmid();
-    hash = (37 * hash) + SENSORID_FIELD_NUMBER;
-    hash = (53 * hash) + getSensorid();
+    hash = (37 * hash) + START_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+        getStart());
     hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -264,9 +243,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      farmid_ = 0;
-
-      sensorid_ = 0;
+      start_ = false;
 
       return this;
     }
@@ -294,8 +271,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public grpc.SensorService.SensorRequest buildPartial() {
       grpc.SensorService.SensorRequest result = new grpc.SensorService.SensorRequest(this);
-      result.farmid_ = farmid_;
-      result.sensorid_ = sensorid_;
+      result.start_ = start_;
       onBuilt();
       return result;
     }
@@ -344,11 +320,8 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(grpc.SensorService.SensorRequest other) {
       if (other == grpc.SensorService.SensorRequest.getDefaultInstance()) return this;
-      if (other.getFarmid() != 0) {
-        setFarmid(other.getFarmid());
-      }
-      if (other.getSensorid() != 0) {
-        setSensorid(other.getSensorid());
+      if (other.getStart() != false) {
+        setStart(other.getStart());
       }
       this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
@@ -377,15 +350,10 @@ private static final long serialVersionUID = 0L;
               done = true;
               break;
             case 8: {
-              farmid_ = input.readInt32();
+              start_ = input.readBool();
 
               break;
             } // case 8
-            case 16: {
-              sensorid_ = input.readInt32();
-
-              break;
-            } // case 16
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -402,64 +370,33 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int farmid_ ;
+    private boolean start_ ;
     /**
-     * <code>int32 farmid = 1;</code>
-     * @return The farmid.
+     * <code>bool start = 1;</code>
+     * @return The start.
      */
     @java.lang.Override
-    public int getFarmid() {
-      return farmid_;
+    public boolean getStart() {
+      return start_;
     }
     /**
-     * <code>int32 farmid = 1;</code>
-     * @param value The farmid to set.
+     * <code>bool start = 1;</code>
+     * @param value The start to set.
      * @return This builder for chaining.
      */
-    public Builder setFarmid(int value) {
+    public Builder setStart(boolean value) {
       
-      farmid_ = value;
+      start_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>int32 farmid = 1;</code>
+     * <code>bool start = 1;</code>
      * @return This builder for chaining.
      */
-    public Builder clearFarmid() {
+    public Builder clearStart() {
       
-      farmid_ = 0;
-      onChanged();
-      return this;
-    }
-
-    private int sensorid_ ;
-    /**
-     * <code>int32 sensorid = 2;</code>
-     * @return The sensorid.
-     */
-    @java.lang.Override
-    public int getSensorid() {
-      return sensorid_;
-    }
-    /**
-     * <code>int32 sensorid = 2;</code>
-     * @param value The sensorid to set.
-     * @return This builder for chaining.
-     */
-    public Builder setSensorid(int value) {
-      
-      sensorid_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>int32 sensorid = 2;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearSensorid() {
-      
-      sensorid_ = 0;
+      start_ = false;
       onChanged();
       return this;
     }

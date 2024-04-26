@@ -8,14 +8,8 @@ public interface SensorRequestOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>int32 farmid = 1;</code>
-   * @return The farmid.
+   * <code>bool start = 1;</code>
+   * @return The start.
    */
-  int getFarmid();
-
-  /**
-   * <code>int32 sensorid = 2;</code>
-   * @return The sensorid.
-   */
-  int getSensorid();
+  boolean getStart();
 }

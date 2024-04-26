@@ -50,6 +50,9 @@ public class IrrigationServiceImpl extends IrrigationServiceGrpc.IrrigationServi
                 } else {
                     System.err.println("Error: No data found for farmId=" + irrigationRequest.getFarmid() + " and districtId=" + irrigationRequest.getDistrictid());
                 }
+
+                // Add 100 to totalVolume for each request
+                totalVolume += 100;
             }
 
             @Override

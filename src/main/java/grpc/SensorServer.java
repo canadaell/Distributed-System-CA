@@ -5,7 +5,6 @@ import io.grpc.Server;
 import io.grpc.ServerBuilder;
 
 import java.io.IOException;
-import java.util.concurrent.TimeUnit;
 
 public class SensorServer {
 
@@ -18,13 +17,8 @@ public class SensorServer {
         server.start();
         System.out.println("Sensor server started on port 9001");
         Runtime.getRuntime().addShutdownHook(new Thread(() -> {
-            System.out.println("Stopping sensor server");
-            try {
-                server.shutdown().awaitTermination(30, TimeUnit.SECONDS);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            System.out.println("Sensor server stopped");
+            System.out.println("Shutting down sensor server");
+            server.shutdown();
         }));
     }
 

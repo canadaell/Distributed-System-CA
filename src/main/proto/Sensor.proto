@@ -12,15 +12,16 @@ service SensorService {
 }
 
 message SensorRequest {
-  int32 farmid = 1;
-  int32 sensorid = 2;
+  bool start = 1;
 }
 
 message SensorResponse {
-  double tempreture = 1;
-  int32 humidity = 2;
+  int32 farmid = 1;
+  int32 sensorid = 2;
   int32 districtid = 3;
-  int32 illumination = 4;
+  double tempreture = 4;
+  int32 humidity = 5;
+  int32 illumination = 6;
 }
 
 message AddSensorRequest {

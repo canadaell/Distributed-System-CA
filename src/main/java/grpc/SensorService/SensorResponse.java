@@ -43,26 +43,26 @@ private static final long serialVersionUID = 0L;
             grpc.SensorService.SensorResponse.class, grpc.SensorService.SensorResponse.Builder.class);
   }
 
-  public static final int TEMPRETURE_FIELD_NUMBER = 1;
-  private double tempreture_;
+  public static final int FARMID_FIELD_NUMBER = 1;
+  private int farmid_;
   /**
-   * <code>double tempreture = 1;</code>
-   * @return The tempreture.
+   * <code>int32 farmid = 1;</code>
+   * @return The farmid.
    */
   @java.lang.Override
-  public double getTempreture() {
-    return tempreture_;
+  public int getFarmid() {
+    return farmid_;
   }
 
-  public static final int HUMIDITY_FIELD_NUMBER = 2;
-  private int humidity_;
+  public static final int SENSORID_FIELD_NUMBER = 2;
+  private int sensorid_;
   /**
-   * <code>int32 humidity = 2;</code>
-   * @return The humidity.
+   * <code>int32 sensorid = 2;</code>
+   * @return The sensorid.
    */
   @java.lang.Override
-  public int getHumidity() {
-    return humidity_;
+  public int getSensorid() {
+    return sensorid_;
   }
 
   public static final int DISTRICTID_FIELD_NUMBER = 3;
@@ -76,10 +76,32 @@ private static final long serialVersionUID = 0L;
     return districtid_;
   }
 
-  public static final int ILLUMINATION_FIELD_NUMBER = 4;
+  public static final int TEMPRETURE_FIELD_NUMBER = 4;
+  private double tempreture_;
+  /**
+   * <code>double tempreture = 4;</code>
+   * @return The tempreture.
+   */
+  @java.lang.Override
+  public double getTempreture() {
+    return tempreture_;
+  }
+
+  public static final int HUMIDITY_FIELD_NUMBER = 5;
+  private int humidity_;
+  /**
+   * <code>int32 humidity = 5;</code>
+   * @return The humidity.
+   */
+  @java.lang.Override
+  public int getHumidity() {
+    return humidity_;
+  }
+
+  public static final int ILLUMINATION_FIELD_NUMBER = 6;
   private int illumination_;
   /**
-   * <code>int32 illumination = 4;</code>
+   * <code>int32 illumination = 6;</code>
    * @return The illumination.
    */
   @java.lang.Override
@@ -101,17 +123,23 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (java.lang.Double.doubleToRawLongBits(tempreture_) != 0) {
-      output.writeDouble(1, tempreture_);
+    if (farmid_ != 0) {
+      output.writeInt32(1, farmid_);
     }
-    if (humidity_ != 0) {
-      output.writeInt32(2, humidity_);
+    if (sensorid_ != 0) {
+      output.writeInt32(2, sensorid_);
     }
     if (districtid_ != 0) {
       output.writeInt32(3, districtid_);
     }
+    if (java.lang.Double.doubleToRawLongBits(tempreture_) != 0) {
+      output.writeDouble(4, tempreture_);
+    }
+    if (humidity_ != 0) {
+      output.writeInt32(5, humidity_);
+    }
     if (illumination_ != 0) {
-      output.writeInt32(4, illumination_);
+      output.writeInt32(6, illumination_);
     }
     getUnknownFields().writeTo(output);
   }
@@ -122,21 +150,29 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (java.lang.Double.doubleToRawLongBits(tempreture_) != 0) {
+    if (farmid_ != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeDoubleSize(1, tempreture_);
+        .computeInt32Size(1, farmid_);
     }
-    if (humidity_ != 0) {
+    if (sensorid_ != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(2, humidity_);
+        .computeInt32Size(2, sensorid_);
     }
     if (districtid_ != 0) {
       size += com.google.protobuf.CodedOutputStream
         .computeInt32Size(3, districtid_);
     }
+    if (java.lang.Double.doubleToRawLongBits(tempreture_) != 0) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeDoubleSize(4, tempreture_);
+    }
+    if (humidity_ != 0) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt32Size(5, humidity_);
+    }
     if (illumination_ != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeInt32Size(4, illumination_);
+        .computeInt32Size(6, illumination_);
     }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
@@ -153,13 +189,17 @@ private static final long serialVersionUID = 0L;
     }
     grpc.SensorService.SensorResponse other = (grpc.SensorService.SensorResponse) obj;
 
+    if (getFarmid()
+        != other.getFarmid()) return false;
+    if (getSensorid()
+        != other.getSensorid()) return false;
+    if (getDistrictid()
+        != other.getDistrictid()) return false;
     if (java.lang.Double.doubleToLongBits(getTempreture())
         != java.lang.Double.doubleToLongBits(
             other.getTempreture())) return false;
     if (getHumidity()
         != other.getHumidity()) return false;
-    if (getDistrictid()
-        != other.getDistrictid()) return false;
     if (getIllumination()
         != other.getIllumination()) return false;
     if (!getUnknownFields().equals(other.getUnknownFields())) return false;
@@ -173,13 +213,17 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
+    hash = (37 * hash) + FARMID_FIELD_NUMBER;
+    hash = (53 * hash) + getFarmid();
+    hash = (37 * hash) + SENSORID_FIELD_NUMBER;
+    hash = (53 * hash) + getSensorid();
+    hash = (37 * hash) + DISTRICTID_FIELD_NUMBER;
+    hash = (53 * hash) + getDistrictid();
     hash = (37 * hash) + TEMPRETURE_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
         java.lang.Double.doubleToLongBits(getTempreture()));
     hash = (37 * hash) + HUMIDITY_FIELD_NUMBER;
     hash = (53 * hash) + getHumidity();
-    hash = (37 * hash) + DISTRICTID_FIELD_NUMBER;
-    hash = (53 * hash) + getDistrictid();
     hash = (37 * hash) + ILLUMINATION_FIELD_NUMBER;
     hash = (53 * hash) + getIllumination();
     hash = (29 * hash) + getUnknownFields().hashCode();
@@ -310,11 +354,15 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      farmid_ = 0;
+
+      sensorid_ = 0;
+
+      districtid_ = 0;
+
       tempreture_ = 0D;
 
       humidity_ = 0;
-
-      districtid_ = 0;
 
       illumination_ = 0;
 
@@ -344,9 +392,11 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public grpc.SensorService.SensorResponse buildPartial() {
       grpc.SensorService.SensorResponse result = new grpc.SensorService.SensorResponse(this);
+      result.farmid_ = farmid_;
+      result.sensorid_ = sensorid_;
+      result.districtid_ = districtid_;
       result.tempreture_ = tempreture_;
       result.humidity_ = humidity_;
-      result.districtid_ = districtid_;
       result.illumination_ = illumination_;
       onBuilt();
       return result;
@@ -396,14 +446,20 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(grpc.SensorService.SensorResponse other) {
       if (other == grpc.SensorService.SensorResponse.getDefaultInstance()) return this;
+      if (other.getFarmid() != 0) {
+        setFarmid(other.getFarmid());
+      }
+      if (other.getSensorid() != 0) {
+        setSensorid(other.getSensorid());
+      }
+      if (other.getDistrictid() != 0) {
+        setDistrictid(other.getDistrictid());
+      }
       if (other.getTempreture() != 0D) {
         setTempreture(other.getTempreture());
       }
       if (other.getHumidity() != 0) {
         setHumidity(other.getHumidity());
-      }
-      if (other.getDistrictid() != 0) {
-        setDistrictid(other.getDistrictid());
       }
       if (other.getIllumination() != 0) {
         setIllumination(other.getIllumination());
@@ -434,13 +490,13 @@ private static final long serialVersionUID = 0L;
             case 0:
               done = true;
               break;
-            case 9: {
-              tempreture_ = input.readDouble();
+            case 8: {
+              farmid_ = input.readInt32();
 
               break;
-            } // case 9
+            } // case 8
             case 16: {
-              humidity_ = input.readInt32();
+              sensorid_ = input.readInt32();
 
               break;
             } // case 16
@@ -449,11 +505,21 @@ private static final long serialVersionUID = 0L;
 
               break;
             } // case 24
-            case 32: {
+            case 33: {
+              tempreture_ = input.readDouble();
+
+              break;
+            } // case 33
+            case 40: {
+              humidity_ = input.readInt32();
+
+              break;
+            } // case 40
+            case 48: {
               illumination_ = input.readInt32();
 
               break;
-            } // case 32
+            } // case 48
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -470,64 +536,64 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private double tempreture_ ;
+    private int farmid_ ;
     /**
-     * <code>double tempreture = 1;</code>
-     * @return The tempreture.
+     * <code>int32 farmid = 1;</code>
+     * @return The farmid.
      */
     @java.lang.Override
-    public double getTempreture() {
-      return tempreture_;
+    public int getFarmid() {
+      return farmid_;
     }
     /**
-     * <code>double tempreture = 1;</code>
-     * @param value The tempreture to set.
+     * <code>int32 farmid = 1;</code>
+     * @param value The farmid to set.
      * @return This builder for chaining.
      */
-    public Builder setTempreture(double value) {
+    public Builder setFarmid(int value) {
       
-      tempreture_ = value;
+      farmid_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>double tempreture = 1;</code>
+     * <code>int32 farmid = 1;</code>
      * @return This builder for chaining.
      */
-    public Builder clearTempreture() {
+    public Builder clearFarmid() {
       
-      tempreture_ = 0D;
+      farmid_ = 0;
       onChanged();
       return this;
     }
 
-    private int humidity_ ;
+    private int sensorid_ ;
     /**
-     * <code>int32 humidity = 2;</code>
-     * @return The humidity.
+     * <code>int32 sensorid = 2;</code>
+     * @return The sensorid.
      */
     @java.lang.Override
-    public int getHumidity() {
-      return humidity_;
+    public int getSensorid() {
+      return sensorid_;
     }
     /**
-     * <code>int32 humidity = 2;</code>
-     * @param value The humidity to set.
+     * <code>int32 sensorid = 2;</code>
+     * @param value The sensorid to set.
      * @return This builder for chaining.
      */
-    public Builder setHumidity(int value) {
+    public Builder setSensorid(int value) {
       
-      humidity_ = value;
+      sensorid_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>int32 humidity = 2;</code>
+     * <code>int32 sensorid = 2;</code>
      * @return This builder for chaining.
      */
-    public Builder clearHumidity() {
+    public Builder clearSensorid() {
       
-      humidity_ = 0;
+      sensorid_ = 0;
       onChanged();
       return this;
     }
@@ -563,9 +629,71 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private double tempreture_ ;
+    /**
+     * <code>double tempreture = 4;</code>
+     * @return The tempreture.
+     */
+    @java.lang.Override
+    public double getTempreture() {
+      return tempreture_;
+    }
+    /**
+     * <code>double tempreture = 4;</code>
+     * @param value The tempreture to set.
+     * @return This builder for chaining.
+     */
+    public Builder setTempreture(double value) {
+      
+      tempreture_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>double tempreture = 4;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearTempreture() {
+      
+      tempreture_ = 0D;
+      onChanged();
+      return this;
+    }
+
+    private int humidity_ ;
+    /**
+     * <code>int32 humidity = 5;</code>
+     * @return The humidity.
+     */
+    @java.lang.Override
+    public int getHumidity() {
+      return humidity_;
+    }
+    /**
+     * <code>int32 humidity = 5;</code>
+     * @param value The humidity to set.
+     * @return This builder for chaining.
+     */
+    public Builder setHumidity(int value) {
+      
+      humidity_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>int32 humidity = 5;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearHumidity() {
+      
+      humidity_ = 0;
+      onChanged();
+      return this;
+    }
+
     private int illumination_ ;
     /**
-     * <code>int32 illumination = 4;</code>
+     * <code>int32 illumination = 6;</code>
      * @return The illumination.
      */
     @java.lang.Override
@@ -573,7 +701,7 @@ private static final long serialVersionUID = 0L;
       return illumination_;
     }
     /**
-     * <code>int32 illumination = 4;</code>
+     * <code>int32 illumination = 6;</code>
      * @param value The illumination to set.
      * @return This builder for chaining.
      */
@@ -584,7 +712,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>int32 illumination = 4;</code>
+     * <code>int32 illumination = 6;</code>
      * @return This builder for chaining.
      */
     public Builder clearIllumination() {

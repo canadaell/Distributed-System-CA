@@ -8,16 +8,16 @@ public interface SensorResponseOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>double tempreture = 1;</code>
-   * @return The tempreture.
+   * <code>int32 farmid = 1;</code>
+   * @return The farmid.
    */
-  double getTempreture();
+  int getFarmid();
 
   /**
-   * <code>int32 humidity = 2;</code>
-   * @return The humidity.
+   * <code>int32 sensorid = 2;</code>
+   * @return The sensorid.
    */
-  int getHumidity();
+  int getSensorid();
 
   /**
    * <code>int32 districtid = 3;</code>
@@ -26,7 +26,19 @@ public interface SensorResponseOrBuilder extends
   int getDistrictid();
 
   /**
-   * <code>int32 illumination = 4;</code>
+   * <code>double tempreture = 4;</code>
+   * @return The tempreture.
+   */
+  double getTempreture();
+
+  /**
+   * <code>int32 humidity = 5;</code>
+   * @return The humidity.
+   */
+  int getHumidity();
+
+  /**
+   * <code>int32 illumination = 6;</code>
    * @return The illumination.
    */
   int getIllumination();

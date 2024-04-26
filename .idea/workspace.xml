@@ -6,33 +6,19 @@
   <component name="ChangeListManager">
     <list default="true" id="5af600b7-a28b-4933-bfe4-6185cb56e5d7" name="更改" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/files/illuminate1.csv" beforeDir="false" afterPath="$PROJECT_DIR$/files/illuminate1.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/files/irrigation1.csv" beforeDir="false" afterPath="$PROJECT_DIR$/files/irrigation1.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/grpc/IlluminateService/IlluminateProto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/grpc/IlluminateService/IlluminateProto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/grpc/IlluminateService/IlluminateRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/grpc/IlluminateService/IlluminateRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/grpc/IlluminateService/IlluminateRequestOrBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/grpc/IlluminateService/IlluminateRequestOrBuilder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/grpc/IlluminateService/IlluminateResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/grpc/IlluminateService/IlluminateResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/grpc/IlluminateService/IlluminateResponseOrBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/grpc/IlluminateService/IlluminateResponseOrBuilder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/grpc/IlluminateService/IlluminateServiceGrpc.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/grpc/IlluminateService/IlluminateServiceGrpc.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/grpc/IrrigationClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/grpc/IrrigationClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/grpc/IrrigationService/IrrigationProto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/grpc/IrrigationService/IrrigationProto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/grpc/IrrigationService/IrrigationRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/grpc/IrrigationService/IrrigationRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/grpc/IrrigationService/IrrigationRequestOrBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/grpc/IrrigationService/IrrigationRequestOrBuilder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/grpc/IrrigationService/IrrigationResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/grpc/IrrigationService/IrrigationResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/grpc/IrrigationService/IrrigationResponseOrBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/grpc/IrrigationService/IrrigationResponseOrBuilder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/grpc/IrrigationService/IrrigationServiceGrpc.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/grpc/IrrigationService/IrrigationServiceGrpc.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/files/sensor.csv" beforeDir="false" afterPath="$PROJECT_DIR$/files/sensor.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/grpc/IrrigationService/IrrigationServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/grpc/IrrigationService/IrrigationServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/grpc/SensorService/AddSensorRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/grpc/SensorService/AddSensorRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/grpc/SensorService/AddSensorRequestOrBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/grpc/SensorService/AddSensorRequestOrBuilder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/grpc/SensorService/AddSensorResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/grpc/SensorService/AddSensorResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/grpc/SensorService/AddSensorResponseOrBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/grpc/SensorService/AddSensorResponseOrBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/grpc/SensorClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/grpc/SensorClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/grpc/SensorServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/grpc/SensorServer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/grpc/SensorService/SensorProto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/grpc/SensorService/SensorProto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/grpc/SensorService/SensorRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/grpc/SensorService/SensorRequest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/grpc/SensorService/SensorRequestOrBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/grpc/SensorService/SensorRequestOrBuilder.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/grpc/SensorService/SensorResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/grpc/SensorService/SensorResponse.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/grpc/SensorService/SensorResponseOrBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/grpc/SensorService/SensorResponseOrBuilder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/grpc/SensorService/SensorServiceGrpc.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/grpc/SensorService/SensorServiceGrpc.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/grpc/SensorService/SensorServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/grpc/SensorService/SensorServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/proto/Irrigation.proto" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/proto/Irrigation.proto" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/proto/Sensor.proto" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/proto/Sensor.proto" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,20 +58,7 @@
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
 }</component>
-  <component name="RunManager" selected="应用程序.IrrigationClient">
-    <configuration name="IlluminateClient" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="grpc.IlluminateClient" />
-      <module name="distributed-system-CA" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="grpc.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="应用程序.SensorClient">
     <configuration name="IlluminateServer" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="grpc.IlluminateServer" />
       <module name="distributed-system-CA" />
@@ -125,6 +98,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="SensorClient" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="grpc.SensorClient" />
+      <module name="distributed-system-CA" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="grpc.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="SensorServer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="grpc.SensorServer" />
       <module name="distributed-system-CA" />
@@ -140,11 +126,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="应用程序.SensorClient" />
+        <item itemvalue="应用程序.SensorServer" />
         <item itemvalue="应用程序.IrrigationClient" />
         <item itemvalue="应用程序.IrrigationServer" />
         <item itemvalue="应用程序.IlluminateServer" />
-        <item itemvalue="应用程序.SensorServer" />
-        <item itemvalue="应用程序.IlluminateClient" />
       </list>
     </recent_temporary>
   </component>
