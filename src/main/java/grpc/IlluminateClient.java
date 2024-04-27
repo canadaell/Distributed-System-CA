@@ -15,6 +15,7 @@ import java.util.concurrent.CountDownLatch;
 
 public class IlluminateClient {
 
+
     public static void main(String[] args) throws InterruptedException {
         ManagedChannel channel = ManagedChannelBuilder.forAddress("localhost", 9002)
                 .usePlaintext()

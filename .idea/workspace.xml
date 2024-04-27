@@ -6,6 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="5af600b7-a28b-4933-bfe4-6185cb56e5d7" name="更改" comment="更改">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/grpc/IlluminateClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/grpc/IlluminateClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/grpc/IlluminateServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/grpc/IlluminateServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/grpc/IrrigationServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/grpc/IrrigationServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/grpc/SensorServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/grpc/SensorServer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,7 +49,7 @@
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;
   }
 }</component>
-  <component name="RunManager" selected="应用程序.SensorClient">
+  <component name="RunManager" selected="应用程序.IrrigationServer">
     <configuration name="IlluminateServer" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="grpc.IlluminateServer" />
       <module name="distributed-system-CA" />
@@ -113,11 +117,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="应用程序.IrrigationServer" />
+        <item itemvalue="应用程序.IlluminateServer" />
         <item itemvalue="应用程序.SensorClient" />
         <item itemvalue="应用程序.SensorServer" />
         <item itemvalue="应用程序.IrrigationClient" />
-        <item itemvalue="应用程序.IrrigationServer" />
-        <item itemvalue="应用程序.IlluminateServer" />
       </list>
     </recent_temporary>
   </component>
