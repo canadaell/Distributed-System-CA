@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="5af600b7-a28b-4933-bfe4-6185cb56e5d7" name="更改" comment="更改">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/grpc/IrrigationServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/grpc/IrrigationServer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,7 +45,14 @@
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;
   }
 }</component>
-  <component name="RunManager" selected="应用程序.IlluminateClient">
+  <component name="RunManager" selected="应用程序.SensorServer">
+    <configuration name="GUI" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="GUI" />
+      <module name="distributed-system-CA" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="IlluminateClient" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="grpc.IlluminateClient" />
       <module name="distributed-system-CA" />
@@ -62,19 +68,6 @@
     </configuration>
     <configuration name="IlluminateServer" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="grpc.IlluminateServer" />
-      <module name="distributed-system-CA" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="grpc.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="IrrigationClient" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="grpc.IrrigationClient" />
       <module name="distributed-system-CA" />
       <extension name="coverage">
         <pattern>
@@ -114,11 +107,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="应用程序.SensorServer" />
+        <item itemvalue="应用程序.GUI" />
         <item itemvalue="应用程序.IlluminateClient" />
         <item itemvalue="应用程序.IlluminateServer" />
         <item itemvalue="应用程序.SensorClient" />
-        <item itemvalue="应用程序.SensorServer" />
-        <item itemvalue="应用程序.IrrigationClient" />
       </list>
     </recent_temporary>
   </component>
