@@ -1,8 +1,19 @@
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.control.Button?>
+<?xml version="1.0" encoding="UTF-8"?>
 
-<GridPane fx:controller="Controller" xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10">
-    <Button fx:id="button1" text="Service 1" onAction="#handleButton1Action" GridPane.columnIndex="0" GridPane.rowIndex="0" />
-    <Button fx:id="button2" text="Service 2" onAction="#handleButton2Action" GridPane.columnIndex="1" GridPane.rowIndex="0" />
-    <Button fx:id="button3" text="Service 3" onAction="#handleButton3Action" GridPane.columnIndex="2" GridPane.rowIndex="0" />
-</GridPane>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
+    <children>
+        <TextArea fx:id="outputArea" VBox.vgrow="ALWAYS" />
+        <TextField fx:id="sensorIdField" promptText="Sensor ID" />
+        <TextField fx:id="sensorTypeField" promptText="Sensor Type" />
+        <TextField fx:id="districtIdField" promptText="District ID" />
+        <Button fx:id="addSensorButton" text="Add Sensor" />
+        <Button fx:id="streamDataButton" text="Stream Data" />
+        <Button fx:id="illuminateButton" text="Illuminate" />
+        <Button fx:id="irrigationButton" text="Irrigation" />
+    </children>
+</VBox>

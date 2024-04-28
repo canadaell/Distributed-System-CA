@@ -5,7 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5af600b7-a28b-4933-bfe4-6185cb56e5d7" name="更改" comment="更改">
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/grpc/SensorClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/grpc/SensorClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/grpc/SensorService/SensorServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/grpc/SensorService/SensorServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/gui.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/gui.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,10 +55,11 @@
     "settings.editor.selected.configurable": "preferences.pluginManager"
   }
 }]]></component>
-  <component name="RunManager" selected="Application.GUI">
+  <component name="RunManager" selected="Application.IlluminateClient">
     <configuration name="GUI" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="GUI" />
       <module name="distributed-system-CA" />
+      <option name="VM_PARAMETERS" value="--module-path &quot;C:\Users\15305\Downloads\javafx-sdk-21.0.3\lib&quot; --add-modules javafx.controls,javafx.fxml" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -117,8 +123,17 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Application.GUI" />
+      <item itemvalue="Application.IlluminateClient" />
+      <item itemvalue="Application.IlluminateServer" />
+      <item itemvalue="Application.SensorClient" />
+      <item itemvalue="Application.SensorServer" />
+    </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.IlluminateClient" />
+        <item itemvalue="Application.IlluminateServer" />
         <item itemvalue="Application.GUI" />
         <item itemvalue="Application.SensorServer" />
       </list>

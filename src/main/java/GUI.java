@@ -1,66 +1,71 @@
-import grpc.SensorClient;
+import io.grpc.ManagedChannel;
+import io.grpc.ManagedChannelBuilder;
+import grpc.SensorService.*;
 import javafx.application.Application;
+import javafx.application.Platform;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class GUI extends Application {
 
-    @Override
-    public void start(Stage stage) throws Exception{
-        stage.show();
+    private SensorServiceGrpc.SensorServiceBlockingStub blockingStub;
+
+    public void start(Stage primaryStage) throws Exception {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("gui.fxml"));
+        Parent root = loader.load();
+
+        Controller controller = loader.getController();
+        controller.setClient(this);
+
+        ManagedChannel channel = ManagedChannelBuilder.forAddress("localhost", 9001)
+                .usePlaintext()
+                .build();
+        blockingStub = SensorServiceGrpc.newBlockingStub(channel);
+
+        Scene scene = new Scene(root);
+
+        primaryStage.setTitle("Sensor Client");
+        primaryStage.setScene(scene);
+        primaryStage.show();
     }
+
+    public void initClient(String host, int port) {
+        ManagedChannel channel = ManagedChannelBuilder.forAddress(host, port)
+                .usePlaintext()
+                .build();
+        blockingStub = SensorServiceGrpc.newBlockingStub(channel);
+    }
+
+    public void addSensor(int sensorId, String sensorType, int districtId) {
+        AddSensorRequest request = AddSensorRequest.newBuilder()
+                .setSensorid(sensorId)
+                .setSensortype(sensorType)
+                .setDistrictid(districtId)
+                .build();
+        AddSensorResponse response = blockingStub.addSensor(request);
+        System.out.println("Add sensor response: " + response.getSuccess() + ", " + response.getMessage());
+    }
+
+    public void streamSensorData(boolean start, TextArea outputArea) {
+        SensorRequest request = SensorRequest.newBuilder()
+                .setStart(start)
+                .build();
+        new Thread(() -> {
+            blockingStub.streamSensorData(request).forEachRemaining(response -> {
+                String output = "Received sensor data: " + response.getFarmid() + ", " + response.getSensorid() + ", " + response.getDistrictid() +
+                        ", " + response.getTempreture() + ", " + response.getHumidity() + ", " + response.getIllumination() + "\n";
+                System.out.print(output);
+                Platform.runLater(() -> outputArea.appendText(output));
+            });
+        }).start();
+    }
+
+
 
     public static void main(String[] args) {
-        launch();
+        launch(args);
     }
-
-//    private TextArea messageArea;
-//
-//    @Override
-//    public void start(Stage primaryStage) {
-//        // Create UI components
-//        messageArea = new TextArea();
-//        messageArea.setEditable(false);
-//
-//        Button button = new Button("Call Sensor Service");
-//        button.setOnAction(e -> {
-//            // Call SensorService and display the response
-//            SensorClient sensorClient = new SensorClient("localhost", 9001);
-//            sensorClient.addSensor(123, "temperature", 456);
-//            sensorClient.streamSensorData(true);
-//            messageArea.setText("Calling SensorService...\n");
-//        });
-//
-//        VBox leftBox = new VBox();
-//        leftBox.getChildren().addAll(new Label("Sensor Service"), button);
-//
-//        VBox centerBox = new VBox();
-//        centerBox.getChildren().add(new Label("Service 2"));
-//
-//        VBox rightBox = new VBox();
-//        rightBox.getChildren().add(new Label("Service 3"));
-//
-//        HBox mainBox = new HBox(leftBox, centerBox, rightBox);
-//
-//        BorderPane root = new BorderPane();
-//        root.setTop(new Label("Smart Farm GUI"));
-//        root.setCenter(mainBox);
-//        root.setBottom(messageArea);
-//
-//        Scene scene = new Scene(root, 800, 600);
-//
-//        primaryStage.setTitle("GUI Client");
-//        primaryStage.setScene(scene);
-//        primaryStage.show();
-//    }
-//
-//    public static void main(String[] args) {
-//        launch(args);
-//    }
 }

@@ -3,6 +3,8 @@ package grpc;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
 import grpc.SensorService.*;
+import java.util.Scanner;
+
 public class SensorClient {
 
     private final SensorServiceGrpc.SensorServiceBlockingStub blockingStub;
@@ -34,13 +36,27 @@ public class SensorClient {
         });
     }
 
+    public void addSensorsFromUserInput() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter the number of sensors to add:");
+        int numSensors = scanner.nextInt();
+        for (int i = 0; i < numSensors; i++) {
+            System.out.println("Enter sensor ID for sensor " + (i + 1) + ":");
+            int sensorId = scanner.nextInt();
+            System.out.println("Enter sensor type for sensor " + (i + 1) + ":");
+            String sensorType = scanner.next();
+            System.out.println("Enter district ID for sensor " + (i + 1) + ":");
+            int districtId = scanner.nextInt();
+            addSensor(sensorId, sensorType, districtId);
+        }
+        scanner.close();
+    }
+
     public static void main(String[] args) {
         SensorClient client = new SensorClient("localhost", 9001);
 
-        // Add a new sensor
-        client.addSensor(123, "temperature", 456);
+        client.addSensorsFromUserInput();
 
-        // Stream sensor data
         client.streamSensorData(true);
     }
 }

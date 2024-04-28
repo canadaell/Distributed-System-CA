@@ -3,14 +3,19 @@ package grpc.SensorService;
 import io.grpc.stub.StreamObserver;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
+import org.apache.commons.csv.CSVPrinter;
 import org.apache.commons.csv.CSVRecord;
 
 import java.io.IOException;
 import java.io.Reader;
+import java.io.Writer;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class SensorServiceImpl extends SensorServiceGrpc.SensorServiceImplBase {
 
@@ -18,7 +23,7 @@ public class SensorServiceImpl extends SensorServiceGrpc.SensorServiceImplBase {
 
     static {
         try (Reader reader = Files.newBufferedReader(Paths.get("C:\\Users\\15305\\Downloads\\distributed-system-CA\\files\\sensor.csv"));
-             CSVParser csvParser = new CSVParser(reader, CSVFormat.DEFAULT.withHeader())) { // Specify WITH_HEADER here
+             CSVParser csvParser = new CSVParser(reader, CSVFormat.DEFAULT.withHeader())) {
 
             for (CSVRecord csvRecord : csvParser) {
                 int farmId = Integer.parseInt(csvRecord.get("farmid"));
@@ -38,18 +43,29 @@ public class SensorServiceImpl extends SensorServiceGrpc.SensorServiceImplBase {
 
     @Override
     public void streamSensorData(SensorRequest request, StreamObserver<SensorResponse> responseObserver) {
-        for (SensorData data : SENSOR_DATA) {
-            SensorResponse response = SensorResponse.newBuilder()
-                    .setFarmid(data.getFarmId())
-                    .setSensorid(data.getSensorId())
-                    .setDistrictid(data.getDistrictId())
-                    .setTempreture(data.getTemperature())
-                    .setHumidity(data.getHumidity())
-                    .setIllumination(data.getIllumination())
-                    .build();
-            responseObserver.onNext(response);
-        }
-        responseObserver.onCompleted();
+        Timer timer = new Timer();
+        final int[] index = {0};
+        timer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                if (index[0] < SENSOR_DATA.size()) {
+                    SensorData data = SENSOR_DATA.get(index[0]);
+                    SensorResponse response = SensorResponse.newBuilder()
+                            .setFarmid(data.getFarmId())
+                            .setSensorid(data.getSensorId())
+                            .setDistrictid(data.getDistrictId())
+                            .setTempreture(data.getTemperature())
+                            .setHumidity(data.getHumidity())
+                            .setIllumination(data.getIllumination())
+                            .build();
+                    responseObserver.onNext(response);
+                    index[0]++;
+                } else {
+                    responseObserver.onCompleted();
+                    timer.cancel();
+                }
+            }
+        }, 0, 5000);
     }
 
     @Override
@@ -61,6 +77,17 @@ public class SensorServiceImpl extends SensorServiceGrpc.SensorServiceImplBase {
         String sensorType = request.getSensortype();
         int districtId = request.getDistrictid();
 
+        try (Writer writer = Files.newBufferedWriter(Paths.get("C:\\Users\\15305\\Downloads\\distributed-system-CA\\files\\addsensor.csv"), StandardOpenOption.APPEND)) {
+            CSVPrinter csvPrinter = new CSVPrinter(writer, CSVFormat.DEFAULT.withHeader("sensorid", "districtid", "sensortype"));
+            csvPrinter.printRecord(sensorId, districtId, sensorType);
+            csvPrinter.flush();
+            success = true;
+            message = "Sensor added successfully";
+        } catch (IOException e) {
+            e.printStackTrace();
+            message = "Failed to add sensor: " + e.getMessage();
+        }
+
         AddSensorResponse response = AddSensorResponse.newBuilder()
                 .setSuccess(success)
                 .setMessage(message)
@@ -68,6 +95,7 @@ public class SensorServiceImpl extends SensorServiceGrpc.SensorServiceImplBase {
         responseObserver.onNext(response);
         responseObserver.onCompleted();
     }
+
 
     private static class SensorData {
         private final int farmId;
