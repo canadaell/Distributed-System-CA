@@ -8,11 +8,13 @@ option java_outer_classname = "SensorProto";
 
 service SensorService {
   rpc StreamSensorData(SensorRequest) returns (stream SensorResponse);
+  //Server Streaming Sensor Service
   rpc AddSensor(AddSensorRequest) returns (AddSensorResponse);
+  //Simple Sensor service
 }
 
 message SensorRequest {
-  bool start = 1;
+  bool start = 1;//start message
 }
 
 message SensorResponse {
@@ -22,15 +24,18 @@ message SensorResponse {
   double tempreture = 4;
   int32 humidity = 5;
   int32 illumination = 6;
+  //transport response imformation every 5 seconds
 }
 
 message AddSensorRequest {
   int32 sensorid = 1;
   string sensortype = 2;
   int32 districtid = 3;
+  //type sensor information
 }
 
 message AddSensorResponse {
   bool success = 1;
   string message = 2;
+  //sensor information stored in an empty csv file.
 }

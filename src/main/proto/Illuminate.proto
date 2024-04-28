@@ -8,15 +8,18 @@ option java_outer_classname = "IlluminateProto";
 
 service IlluminateService {
   rpc illuminate(stream IlluminateRequest) returns (stream IlluminateResponse);
+  //bidirectional Stream illuminate service
 }
 
 message IlluminateRequest {
   int32 farmid = 1;
   int32 districtid = 2;
   int32 duration = 3;
+  //client add request to server
 }
 
 message IlluminateResponse {
   bool success = 1;
   string message = 2;
+  //server response streaming information
 }

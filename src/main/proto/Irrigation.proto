@@ -10,15 +10,16 @@ option java_outer_classname = "IrrigationProto";
 
 service IrrigationService{
   rpc Irrigation(stream IrrigationRequest) returns (IrrigationResponse);
+  //client Streaming irrigation service
 }
 
 message IrrigationRequest{
   int32 districtid = 1;
   int32 farmid = 2;
   int32 volume = 3;
+  //server read all request
 }
 
 message IrrigationResponse{
-  bool success = 1;
-  int32 volume = 2;
+  //return one response ,and calculate total volume
 }
