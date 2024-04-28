@@ -1,8 +1,12 @@
 
+import grpc.IrrigationClient;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextArea;
+
+import java.io.Reader;
+import java.io.StringReader;
 
 public class Controller {
 
@@ -44,13 +48,15 @@ public class Controller {
 
     @FXML
     public void illuminate() {
-
+        client.illuminate(outputArea);
     }
 
-    @FXML
     public void irrigation() {
-
+        String csvData = "1,2\n3,4\n5,6";
+        Reader csvReader = new StringReader(csvData);
+        client.irrigation(csvReader, outputArea);
     }
+
 
     @FXML
     public void initialize() {
